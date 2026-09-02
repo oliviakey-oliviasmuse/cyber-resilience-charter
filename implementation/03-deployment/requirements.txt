@@ -1,0 +1,50 @@
+# Cyber Resilience — Phase 4 (Improve) Python dependencies
+# Six Sigma-aligned reference implementation
+
+# Core
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Cryptographic signing (in production, use HSM-backed libraries)
+cryptography>=41.0.0  # For Ed25519 signatures
+PyNaCl>=1.5.0        # Alternative signing library
+
+# Data validation
+pydantic>=2.0.0
+
+# Logging and observability
+structlog>=23.1.0
+python-json-logger>=2.0.7
+
+# HTTP clients (for data lake communication in production)
+httpx>=0.24.0
+requests>=2.31.0
+
+# Database drivers (in production)
+psycopg2-binary>=2.9.0  # PostgreSQL
+sqlalchemy>=2.0.0       # ORM
+
+# Time series (in production, for telemetry)
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Configuration
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Web framework (for dashboard API in production)
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic-settings>=2.0.0
+
+# Dashboard (in production)
+plotly>=5.17.0  # For SPC charts
+streamlit>=1.27.0  # For Executive Dashboard
+
+# Testing utilities
+pytest-mock>=3.11.0
+freezegun>=1.2.0  # For time-based tests
