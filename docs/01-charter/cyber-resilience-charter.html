@@ -507,7 +507,7 @@
     <div class="row"><div class="label">Executive Sponsor</div><div class="value">Chief Information Security Officer (CISO)</div></div>
     <div class="row"><div class="label">Duration</div><div class="value">12 weeks, 5 tollgates (G1–G5)</div></div>
     <div class="row"><div class="label">Data Constraint</div><div class="value">Data-blind (anonymised, normalised inputs only)</div></div>
-    <div class="row"><div class="label">Engagement Target</div><div class="value">Z ≥ 4.5 capability for cyber-induced downtime</div></div>
+    <div class="row"><div class="label">Engagement Target</div><div class="value">Z ≥ 6.0 capability for cyber-induced downtime (theoretical Six Sigma — 0.002 DPMO short-term; 3.4 DPMO with 1.5σ long-term drift shift)</div></div>
     <div class="row"><div class="label">Document Version</div><div class="value">Phase 1 (Define) — Final, 02 September 2026</div></div>
   </div>
   <div class="conf">CONFIDENTIAL — CISO EYES ONLY</div>
@@ -552,7 +552,7 @@
 <h1 class="section-title">Section 1 — Executive Summary</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> <code>context/00-original-input.md</code> §1 Executive Briefing</p>
+<strong>Source:</strong> <code>context/00-original-input.md</code> #1 Executive Briefing</p>
 <hr />
 <h2 id="11-engagement-at-a-glance">1.1 Engagement at a Glance</h2>
 <table>
@@ -624,7 +624,7 @@
 <p>The CISO owns risk appetite and confidentiality. The MBB owns the analytical engine and project velocity. The 19 Green Belts own execution and statistical control. This separation prevents the engagement from collapsing into either pure IT security (no operational rigour) or pure operational programme (no cyber domain depth).</p>
 <hr />
 <h2 id="14-target-outcomes-12-week-horizon">1.4 Target Outcomes (12-Week Horizon)</h2>
-<p>The engagement-level target is <strong>Z ≥ 6.0 capability for cyber-induced downtime</strong> (0.002 DPMO short-term; 3.4 DPMO with the 1.5σ long-term drift shift — the theoretical Six Sigma level). All sub-process targets in §1.4.1 are operational translations of sub-process capability indices that roll up to this engagement-level target. Time values are baseline operational expressions; the capability index is the binding MBB metric, and the Measure phase (Tollgate G2) will validate them against actual anonymised process data.</p>
+<p>The engagement-level target is <strong>Z ≥ 6.0 capability for cyber-induced downtime</strong> (0.002 DPMO short-term; 3.4 DPMO with the 1.5σ long-term drift shift — the theoretical Six Sigma level). All sub-process targets in #1.4.1 are operational translations of sub-process capability indices that roll up to this engagement-level target. Time values are baseline operational expressions; the capability index is the binding MBB metric, and the Measure phase (Tollgate G2) will validate them against actual anonymised process data.</p>
 <table>
 <thead>
 <tr>
@@ -728,13 +728,13 @@
 <h2 id="15-what-this-section-does-not-cover">1.5 What This Section Does Not Cover</h2>
 <p>Section 1 is the engagement-level summary. Subsequent sections cover:</p>
 <ul>
-<li><strong>§2 Business Case &amp; Financial Exposure</strong> — full P × E × M model, COPQ band, IP-theft exposure</li>
-<li><strong>§3 CISO Strategic Alignment</strong> — formal RACI, decision rights, escalation matrix</li>
-<li><strong>§4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
-<li><strong>§5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
-<li><strong>§6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#2 Business Case &amp; Financial Exposure</strong> — full P × E × M model, COPQ band, IP-theft exposure</li>
+<li><strong>#3 CISO Strategic Alignment</strong> — formal RACI, decision rights, escalation matrix</li>
+<li><strong>#4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
+<li><strong>#5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
+<li><strong>#6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 </ul>
 </section>
 
@@ -1022,8 +1022,8 @@ Protected Value  = Exposure × M
 </tr>
 </tbody>
 </table>
-<p>The blended COPQ is the financial translation of a single minute of cyber-induced downtime. It is the operational anchor for the MTTR targets in §1.4.1: every minute of MTTR above target is $4K–$11.5K of additional COPQ per line per event.</p>
-<p><strong>Note:</strong> Silent corruption is not captured in the blended COPQ band, because silent corruption is by definition a <em>non-downtime</em> event. The COPQ is the downtime-exposure operational measure. Silent corruption is captured in the <code>E_silent_corruption</code> exposure band (§2.2.2) and surfaces on the dashboard as a separate tile tracking recall/warranty cost avoidance.</p>
+<p>The blended COPQ is the financial translation of a single minute of cyber-induced downtime. It is the operational anchor for the MTTR targets in #1.4.1: every minute of MTTR above target is $4K–$11.5K of additional COPQ per line per event.</p>
+<p><strong>Note:</strong> Silent corruption is not captured in the blended COPQ band, because silent corruption is by definition a <em>non-downtime</em> event. The COPQ is the downtime-exposure operational measure. Silent corruption is captured in the <code>E_silent_corruption</code> exposure band (#2.2.2) and surfaces on the dashboard as a separate tile tracking recall/warranty cost avoidance.</p>
 <hr />
 <h2 id="25-mitigation-capture-m-and-protected-value">2.5 Mitigation Capture (<code>M</code>) and Protected Value</h2>
 <p>The mitigation capture rate <code>M</code> is the fraction of <code>E_cyber</code> that the engagement can avoid through structural controls. The conservative scenario applies the same capture logic used in the OSI whitepaper:</p>
@@ -1140,23 +1140,23 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <p>The cyber engagement is structurally a <strong>higher-exposure, lower-insurability, higher-AI-augmentation-potential</strong> engagement than the OSI entropy framework. The same MBB methodology applies, but the cost-of-no-action is materially larger.</p>
 <hr />
 <h2 id="28-sensitivity-analysis">2.8 Sensitivity Analysis</h2>
-<p>The exposure band in §2.3 has three primary sensitivities:</p>
+<p>The exposure band in #2.3 has three primary sensitivities:</p>
 <ol>
 <li><strong>IP valuation band</strong> (<code>E_ip</code>): A 2× increase in chemistry IP valuation (plausible for proprietary solid-state or sodium-ion platforms) raises the upper bound of <code>E_ip</code> beyond $100M/year. The engagement's protected value scales linearly with IP valuation.</li>
 <li><strong>Safety tail binding</strong>: Any single realised safety event in the industry materially shifts the regulatory and OEM-contractual exposure bands. The post-event regulatory environment is more punitive than the pre-event environment.</li>
 <li><strong>OEM contractual enforcement</strong>: As VW / BMW / Stellantis tighten cyber attestation enforcement in 2025–2027 supplier contracts, the <code>E_regulatory</code> band widens. Early engagement de-risks this trajectory.</li>
 </ol>
-<p>The Measure phase (Tollgate G2) will calibrate the actual baseline against the engagement's own anonymised data, and the targets in §1.4 will adjust accordingly.</p>
+<p>The Measure phase (Tollgate G2) will calibrate the actual baseline against the engagement's own anonymised data, and the targets in #1.4 will adjust accordingly.</p>
 <hr />
 <h2 id="29-what-this-section-does-not-cover">2.9 What This Section Does Not Cover</h2>
 <p>Section 2 is the financial and exposure framing. Subsequent sections cover:</p>
 <ul>
-<li><strong>§3 CISO Strategic Alignment</strong> — formal RACI, decision rights, escalation matrix</li>
-<li><strong>§4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
-<li><strong>§5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
-<li><strong>§6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#3 CISO Strategic Alignment</strong> — formal RACI, decision rights, escalation matrix</li>
+<li><strong>#4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
+<li><strong>#5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
+<li><strong>#6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 </ul>
 </section>
 
@@ -1173,10 +1173,10 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <p>The CISO is the single accountable authority for the engagement. The CISO's role is structural, not operational — they set the boundaries within which the MBB and the 19 Green Belts operate.</p>
 <p><strong>Decision rights:</strong>
 - <strong>Risk appetite</strong> — defines what residual risk is acceptable post-engagement; sets the Z-score target floor
-- <strong>Confidentiality protocol</strong> — owns the data-access governance (§3.5); grants or revokes the 19 Green Belts' access to anonymised data
+- <strong>Confidentiality protocol</strong> — owns the data-access governance (#3.5); grants or revokes the 19 Green Belts' access to anonymised data
 - <strong>Tollgate sign-off</strong> — sole signatory on G1–G5; no phase advances without CISO approval
 - <strong>Budget allocation</strong> — approves any non-standard spend (e.g. external SOC tooling, AI agent platform licensing)
-- <strong>Strategic escalation</strong> — receives Tier 3 and Tier 4 escalations (§3.4); routes to executive committee as required
+- <strong>Strategic escalation</strong> — receives Tier 3 and Tier 4 escalations (#3.4); routes to executive committee as required
 - <strong>Incident notification</strong> — receives real-time notification of any confirmed cyber event on a protected line, regardless of severity</p>
 <p><strong>Accountability boundaries:</strong>
 - Does NOT make engineering or methodological decisions (those belong to the MBB)
@@ -1188,7 +1188,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 - <strong>Project velocity</strong> — drives the engagement to each tollgate on schedule; resolves cross-track dependencies
 - <strong>DMAIC methodology</strong> — owns the analytical engine (FMEA, SPC, capability indices); arbitrates methodological disputes
 - <strong>Track allocation</strong> — allocates the 19 Green Belts across Track A / B / C; can reallocate within the approved headcount
-- <strong>Internal escalation</strong> — resolves Tier 1 and Tier 2 issues (§3.4) within 24 hours
+- <strong>Internal escalation</strong> — resolves Tier 1 and Tier 2 issues (#3.4) within 24 hours
 - <strong>Operational decisions</strong> — makes all day-to-day decisions within the approved charter; only escalates to CISO when scope, budget, or risk appetite is at issue
 - <strong>CISO presentation</strong> — sole presenter of tollgate findings to the CISO</p>
 <p><strong>Accountability boundaries:</strong>
@@ -1212,10 +1212,10 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 - Does NOT make decisions affecting other tracks without MBB coordination
 - Does NOT modify the data-access protocol (CISO)</p>
 <h3 id="314-green-belts-19-total">3.1.4 Green Belts (19 total)</h3>
-<p>The Green Belts are the execution team. They write code, query data, deploy automation, and execute the standard work defined in §6.</p>
+<p>The Green Belts are the execution team. They write code, query data, deploy automation, and execute the standard work defined in #6.</p>
 <p><strong>Decision rights:</strong>
 - <strong>Code / data / automation</strong> — write code within the track's approved scope, query the anonymised data lake, deploy automation
-- <strong>Standard work</strong> — follow the Standard Work checklist (§6) for weekly, monthly, quarterly routines
+- <strong>Standard work</strong> — follow the Standard Work checklist (#6) for weekly, monthly, quarterly routines
 - <strong>Issue flag</strong> — raise issues to the Track Lead; can pause work if a data-access anomaly is detected</p>
 <p><strong>Accountability boundaries:</strong>
 - Cannot query raw data; cannot modify the anonymisation pipeline; cannot share query results outside the track
@@ -1728,11 +1728,11 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <h2 id="37-what-section-3-does-not-cover">3.7 What Section 3 Does Not Cover</h2>
 <p>Section 3 is the governance and alignment framework. Subsequent sections cover:</p>
 <ul>
-<li><strong>§4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
-<li><strong>§5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
-<li><strong>§6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#4 DMAIC Methodology</strong> — Define / Measure / Analyse / Improve / Control, in detail</li>
+<li><strong>#5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones</li>
+<li><strong>#6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 </ul>
 </section>
 
@@ -1740,12 +1740,12 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <h1 class="section-title">Section 4 — DMAIC Methodology</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> <code>context/00-original-input.md</code> (DMAIC breakdown, cross-referenced with §1 sub-process targets and §2 exposure classes)</p>
+<strong>Source:</strong> <code>context/00-original-input.md</code> (DMAIC breakdown, cross-referenced with #1 sub-process targets and #2 exposure classes)</p>
 <p><strong>Emphasis:</strong> Each DMAIC phase is structured around (1) phase objective, (2) data-blind adaptation, (3) track allocation, (4) tollgate deliverable, and (5) cross-references to the engagement's exposure classes and sub-process capability targets.</p>
 <hr />
 <h2 id="41-dmaic-as-the-engagement-methodology">4.1 DMAIC as the Engagement Methodology</h2>
 <p>DMAIC (Define, Measure, Analyse, Improve, Control) is the analytical engine for the engagement. It is applied to the IT/OT convergence stack with the cell manufacturing value stream (mixing → coating → assembly → electrolyte injection → formation &amp; aging → grading) as the unit of analysis.</p>
-<p>The methodology is data-blind: the 19 Green Belts manipulate data ratios, time-based deltas, compliance percentages, defect rates, and capability indices — not raw IP addresses, hostnames, or proprietary configurations. The CISO's team operates the anonymisation pipeline (§3.5); GBs query only post-anonymisation outputs.</p>
+<p>The methodology is data-blind: the 19 Green Belts manipulate data ratios, time-based deltas, compliance percentages, defect rates, and capability indices — not raw IP addresses, hostnames, or proprietary configurations. The CISO's team operates the anonymisation pipeline (#3.5); GBs query only post-anonymisation outputs.</p>
 <p><strong>The methodology's purpose</strong> is to convert the engagement-level target (Z ≥ 6.0 capability for cyber-induced downtime, 0.002 DPMO short-term / 3.4 DPMO with the 1.5σ long-term drift shift — theoretical Six Sigma) into operational, statistically-validated sub-process controls — and to demonstrate, at each tollgate, that the engagement is moving the capability indices in the right direction.</p>
 <hr />
 <h2 id="42-define-phase-weeks-13-tollgate-g1">4.2 DEFINE Phase (Weeks 1–3, Tollgate G1)</h2>
@@ -1809,18 +1809,18 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 </table>
 <h3 id="426-tollgate-g1-deliverable">4.2.6 Tollgate G1 Deliverable</h3>
 <ul>
-<li>Signed Project Charter (§§1–3 of this document)</li>
+<li>Signed Project Charter (##1–3 of this document)</li>
 <li>Digital VSM (Track A)</li>
 <li>Data-blind SIPOC diagram (Track B)</li>
 <li>Baseline code standards document (Track C)</li>
-<li>Data-access governance protocol approved by CISO (§3.5)</li>
+<li>Data-access governance protocol approved by CISO (#3.5)</li>
 <li>Draft FMEA structure with process steps and failure-mode categories populated (deferred to Analyse phase for full population)</li>
 </ul>
 <p><strong>CISO sign-off:</strong> approve charter, scope, team allocation, confidentiality protocol.</p>
 <hr />
 <h2 id="43-measure-phase-weeks-45-tollgate-g2">4.3 MEASURE Phase (Weeks 4–5, Tollgate G2)</h2>
 <h3 id="431-phase-objective">4.3.1 Phase Objective</h3>
-<p>Establish the anonymised data infrastructure, validate the sub-process capability targets in §1.4.1, and produce the engagement-level capability baseline (Z-score).</p>
+<p>Establish the anonymised data infrastructure, validate the sub-process capability targets in #1.4.1, and produce the engagement-level capability baseline (Z-score).</p>
 <h3 id="432-anonymised-data-infrastructure">4.3.2 Anonymised Data Infrastructure</h3>
 <p>Track B stands up the data pipeline, owned by the CISO's team:</p>
 <pre><code>[ OT/IT raw data ]  →  [ CISO anonymisation pipeline ]  →  [ Anonymised data lake ]  →  [ GB query interface ]
@@ -1833,14 +1833,14 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 - Traffic volumes (aggregate, not per-flow)
 - Anonymised incident counts (no asset identifiers)</p>
 <h3 id="433-sub-process-baseline-measurement">4.3.3 Sub-Process Baseline Measurement</h3>
-<p>Track B measures each sub-process identified in §1.4.1 and produces baseline distributions. The capability targets are not assumed; they are validated against the actual anonymised process data.</p>
+<p>Track B measures each sub-process identified in #1.4.1 and produces baseline distributions. The capability targets are not assumed; they are validated against the actual anonymised process data.</p>
 <table>
 <thead>
 <tr>
 <th>Sub-process</th>
 <th>Operational metric</th>
 <th>Baseline measurement</th>
-<th>Target (from §1.4.1)</th>
+<th>Target (from #1.4.1)</th>
 </tr>
 </thead>
 <tbody>
@@ -1915,7 +1915,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <li>Z-score baseline report (Track B)</li>
 <li>Anonymised data lake operational with audit logging</li>
 <li>Validated MTTD / MTTR distributions per sub-process</li>
-<li>Confirmed (or adjusted) capability targets from §1.4.1</li>
+<li>Confirmed (or adjusted) capability targets from #1.4.1</li>
 <li>SIEM rule coverage gap analysis (Track C)</li>
 </ul>
 <p><strong>CISO sign-off:</strong> approve capability baseline, validate MTTD/MTTR targets.</p>
@@ -2185,7 +2185,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 </tr>
 <tr>
 <td><strong>Sustain</strong></td>
-<td>Green Belt Standard Work (§6); monthly cyber-attack drill; quarterly FMEA refresh; control plan enforcement</td>
+<td>Green Belt Standard Work (#6); monthly cyber-attack drill; quarterly FMEA refresh; control plan enforcement</td>
 <td>All</td>
 </tr>
 </tbody>
@@ -2272,7 +2272,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 </tr>
 </tbody>
 </table>
-<p><strong>AI agent governance:</strong> Every agent action is logged and reviewable. CISO retains kill-switch authority on any agent. Agents operate within the data-access protocol (§3.5) — they query the anonymised data lake, never raw data.</p>
+<p><strong>AI agent governance:</strong> Every agent action is logged and reviewable. CISO retains kill-switch authority on any agent. Agents operate within the data-access protocol (#3.5) — they query the anonymised data lake, never raw data.</p>
 <h3 id="456-track-allocation-improve">4.5.6 Track Allocation — Improve</h3>
 <table>
 <thead>
@@ -2315,7 +2315,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <h3 id="461-phase-objective">4.6.1 Phase Objective</h3>
 <p>Transition the engagement from project to operational discipline. Deploy the control plan, embed the Green Belt standard work, and authorise handover to Operations.</p>
 <h3 id="462-statistical-process-control-spc">4.6.2 Statistical Process Control (SPC)</h3>
-<p>Track B deploys automated SPC charts on the executive dashboard (§7):</p>
+<p>Track B deploys automated SPC charts on the executive dashboard (#7):</p>
 <table>
 <thead>
 <tr>
@@ -2351,8 +2351,8 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <p>The control plan is the binding document for sustained operation. It defines:</p>
 <ul>
 <li><strong>Automated triggers:</strong> if any SPC chart breaches UCL, the system automatically isolates the affected line segment before lateral spread</li>
-<li><strong>Standard work:</strong> every Green Belt follows the weekly / monthly / quarterly standard work defined in §6</li>
-<li><strong>Escalation discipline:</strong> every anomaly is logged; UCL breaches trigger Tier 1/2 escalation per §3.4</li>
+<li><strong>Standard work:</strong> every Green Belt follows the weekly / monthly / quarterly standard work defined in #6</li>
+<li><strong>Escalation discipline:</strong> every anomaly is logged; UCL breaches trigger Tier 1/2 escalation per #3.4</li>
 <li><strong>Audit cadence:</strong> bi-annual CISO audit, annual third-party audit of the control plan</li>
 <li><strong>FMEA refresh:</strong> quarterly FMEA refresh to account for new equipment, firmware, line software</li>
 </ul>
@@ -2405,7 +2405,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <ul>
 <li>Deployed SPC charts on executive dashboard (Track B)</li>
 <li>Laminated physical line-rollback SOPs in every protected cell (Track C)</li>
-<li>Standard Work package (§6) embedded in engineering routines</li>
+<li>Standard Work package (#6) embedded in engineering routines</li>
 <li>Control plan signed off by CISO and Operations Director</li>
 <li>Final CISO briefing: Z-score baseline vs target, RPN reduction, COPQ protected value</li>
 </ul>
@@ -2419,14 +2419,14 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <li>Track B outputs (anonymised data, SPC charts, capability indices) feed Track C's AI agent telemetry and the executive dashboard</li>
 <li>Track C outputs (Poka-Yoke, SMED, AI agents) feed Track A's segmentation validation and Track B's SPC instrumentation</li>
 </ul>
-<p>The MBB owns the cross-track coordination; Track Leads resolve track-internal issues; cross-track issues escalate to MBB at Tier 2 (§3.4).</p>
+<p>The MBB owns the cross-track coordination; Track Leads resolve track-internal issues; cross-track issues escalate to MBB at Tier 2 (#3.4).</p>
 <h3 id="472-sub-process-target-roll-up">4.7.2 Sub-Process Target Roll-Up</h3>
-<p>The sub-process targets in §1.4.1 are validated in Measure (G2) and operationalised in Improve (G4). The engagement-level Z-score in §2 is the roll-up function of the sub-process capabilities:</p>
+<p>The sub-process targets in #1.4.1 are validated in Measure (G2) and operationalised in Improve (G4). The engagement-level Z-score in #2 is the roll-up function of the sub-process capabilities:</p>
 <pre><code>Z_engagement = f(Z_detection, Z_response, Z_prevention)
 </code></pre>
 <p>If any sub-process fails to achieve its target, the engagement-level target cannot be met. The control plan enforces sub-process capability maintenance through SPC and standard work.</p>
 <h3 id="473-fmea-to-exposure-class-linkage">4.7.3 FMEA-to-Exposure-Class Linkage</h3>
-<p>The top 12 FMEA failure modes in §4.4.3 map to the exposure classes in §2.2 (with mode numbers reflecting the post-recalibration ranking):</p>
+<p>The top 12 FMEA failure modes in #4.4.3 map to the exposure classes in #2.2 (with mode numbers reflecting the post-recalibration ranking):</p>
 <table>
 <thead>
 <tr>
@@ -2458,15 +2458,15 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 </tr>
 </tbody>
 </table>
-<p><strong>7 of 12 modes (the entire SC class) drive <code>E_silent_corruption</code></strong>, validating the structural decision in §2.2.2 to break silent corruption out as its own exposure line. The FMEA's RPN reduction directly drives the protected value calculation in §2.5. <strong>An 80% RPN reduction across the top 10 modes</strong> is the Six Sigma-aligned target (corresponds to roughly an 80% reduction in <code>E_cyber</code> probability-weighted exposure, which is the basis for the engagement's protected value at theoretical Six Sigma capability). The post-recalibration ranking makes this linkage even tighter: <strong>the top 5 RPN modes (≥ 450) are all silent corruption</strong>, meaning the engagement's protected value is overwhelmingly driven by detecting and preventing parameter-tampering.</p>
+<p><strong>7 of 12 modes (the entire SC class) drive <code>E_silent_corruption</code></strong>, validating the structural decision in #2.2.2 to break silent corruption out as its own exposure line. The FMEA's RPN reduction directly drives the protected value calculation in #2.5. <strong>An 80% RPN reduction across the top 10 modes</strong> is the Six Sigma-aligned target (corresponds to roughly an 80% reduction in <code>E_cyber</code> probability-weighted exposure, which is the basis for the engagement's protected value at theoretical Six Sigma capability). The post-recalibration ranking makes this linkage even tighter: <strong>the top 5 RPN modes (≥ 450) are all silent corruption</strong>, meaning the engagement's protected value is overwhelmingly driven by detecting and preventing parameter-tampering.</p>
 <hr />
 <h2 id="48-what-section-4-does-not-cover">4.8 What Section 4 Does Not Cover</h2>
 <p>Section 4 is the analytical engine. Subsequent sections cover:</p>
 <ul>
-<li><strong>§5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones, tollgate dates</li>
-<li><strong>§6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#5 Implementation Roadmap</strong> — 12-week plan, 3 tracks, weekly milestones, tollgate dates</li>
+<li><strong>#6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 </ul>
 </section>
 
@@ -2474,7 +2474,7 @@ Aggressive capture:     M = 50%   →   Protected Value = E_cyber × 0.50
 <h1 class="section-title">Section 5 — Implementation Roadmap</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> <code>context/00-original-input.md</code> §3 Implementation Plan, cross-referenced with §4 DMAIC methodology</p>
+<strong>Source:</strong> <code>context/00-original-input.md</code> #3 Implementation Plan, cross-referenced with #4 DMAIC methodology</p>
 <p><strong>Emphasis:</strong> Detailed Gantt-style 12-week timeline with track dependencies, critical path, tollgate calendar, and GB utilisation. The Gantt is the visual anchor; dependencies and critical path are the engineering backbone.</p>
 <hr />
 <h2 id="51-roadmap-overview">5.1 Roadmap Overview</h2>
@@ -2760,7 +2760,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 </tbody>
 </table>
-<p><strong>Dependency governance:</strong> MBB reviews the dependency graph at the start of each phase; Track Leads surface risks in the weekly Operations sync (§3.6); dependencies on the critical path receive Tier 2 escalation if at risk.</p>
+<p><strong>Dependency governance:</strong> MBB reviews the dependency graph at the start of each phase; Track Leads surface risks in the weekly Operations sync (#3.6); dependencies on the critical path receive Tier 2 escalation if at risk.</p>
 <hr />
 <h2 id="55-critical-path">5.5 Critical Path</h2>
 <p>The critical path is the sequence of dependent tasks whose slip directly delays the project. For this engagement, the critical path is Track B-driven:</p>
@@ -3016,9 +3016,9 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h2 id="59-what-section-5-does-not-cover">5.9 What Section 5 Does Not Cover</h2>
 <p>Section 5 is the timeline and execution plan. Subsequent sections cover:</p>
 <ul>
-<li><strong>§6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers, what happens after G5</li>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits, executive dashboard</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#6 Continuation &amp; Standard Work</strong> — Green Belt routines, Kaizen triggers, what happens after G5</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits, executive dashboard</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 <li><strong>Appendix A — CISO Elevator Pitch</strong> — standalone</li>
 <li><strong>Appendix B — CISO Executive Dashboard Mockup</strong> — standalone</li>
 </ul>
@@ -3028,7 +3028,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h1 class="section-title">Section 6 — Continuation & Standard Work</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> <code>context/00-original-input.md</code> §4 Implementation for Continuation, cross-referenced with §4.6 Control phase and §5.8 risk-based decision points</p>
+<strong>Source:</strong> <code>context/00-original-input.md</code> #4 Implementation for Continuation, cross-referenced with #4.6 Control phase and #5.8 risk-based decision points</p>
 <p><strong>Emphasis:</strong> Standard Work that prevents project degradation after the 12-week push. Cyber-Kaizen triggers that initiate immediate response. Maturity scoring for sustained governance. Cross-site replication for the 5-site enterprise.</p>
 <hr />
 <h2 id="61-continuation-philosophy">6.1 Continuation Philosophy</h2>
@@ -3039,7 +3039,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <li><strong>Cyber-Kaizen Triggers</strong> — pre-defined conditions that initiate immediate improvement events without waiting for scheduled reviews</li>
 <li><strong>Maturity Scoring</strong> — quarterly self-assessment against a 5-level model; capability regression triggers escalation</li>
 </ol>
-<p>The continuation phase is governed by §7 (CISO Governance Cycle) and protected by §8 (Constraints &amp; Risks).</p>
+<p>The continuation phase is governed by #7 (CISO Governance Cycle) and protected by #8 (Constraints &amp; Risks).</p>
 <hr />
 <h2 id="62-green-belt-standard-work">6.2 Green Belt Standard Work</h2>
 <p>The Standard Work is the operational backbone of the continuation phase. Each routine has explicit cadence, owner, activity, deliverable, time required, and escalation.</p>
@@ -3195,7 +3195,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <tr>
 <td><strong>Maturity score recalculation</strong></td>
 <td>MBB</td>
-<td>Recalculate maturity score (§6.4); identify capability gaps</td>
+<td>Recalculate maturity score (#6.4); identify capability gaps</td>
 <td>Updated maturity score; gap remediation plan</td>
 <td>4 h/MBB</td>
 <td>Tier 3 to CISO if maturity score drops</td>
@@ -3521,7 +3521,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 - Maturity score drops 2 levels → Tier 3 to CISO with re-baseline proposal</p>
 <hr />
 <h2 id="65-cross-site-replication-5-site-enterprise">6.5 Cross-Site Replication (5-Site Enterprise)</h2>
-<p>The engagement starts at a single site. The continuation phase includes structured cross-site replication to capture the enterprise protected value from §2.6 (5-site enterprise: $25M–$225M+/year at M=25%).</p>
+<p>The engagement starts at a single site. The continuation phase includes structured cross-site replication to capture the enterprise protected value from #2.6 (5-site enterprise: $25M–$225M+/year at M=25%).</p>
 <h3 id="651-replication-phases">6.5.1 Replication Phases</h3>
 <table>
 <thead>
@@ -3662,8 +3662,8 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h2 id="68-what-section-6-does-not-cover">6.8 What Section 6 Does Not Cover</h2>
 <p>Section 6 is the continuation and standard work. Subsequent sections cover:</p>
 <ul>
-<li><strong>§7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits, executive dashboard</li>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
+<li><strong>#7 CISO Governance Cycle</strong> — bi-weekly briefings, bi-annual audits, executive dashboard</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement</li>
 <li><strong>Appendix A — CISO Elevator Pitch</strong></li>
 <li><strong>Appendix B — CISO Executive Dashboard Mockup</strong></li>
 </ul>
@@ -3673,7 +3673,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h1 class="section-title">Section 7 — CISO Governance Cycle</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> <code>context/00-original-input.md</code> (CISO governance references in §3.1, §3.2, §4.4), cross-referenced with §3.5 Data-Access Governance and §6 Continuation</p>
+<strong>Source:</strong> <code>context/00-original-input.md</code> (CISO governance references in #3.1, #3.2, #4.4), cross-referenced with #3.5 Data-Access Governance and #6 Continuation</p>
 <p><strong>Emphasis:</strong> Executive Dashboard as the CISO's main continuous visibility tool. Bi-weekly briefings and bi-annual audits are structured around the dashboard. The dashboard is the single source of truth; the briefings and audits are decision moments.</p>
 <hr />
 <h2 id="71-governance-overview">7.1 Governance Overview</h2>
@@ -3722,7 +3722,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <p><strong>Governance principle:</strong> The CISO is informed continuously (via dashboard) and engaged at three escalating cadences (bi-weekly / bi-annual / annual). Decision authority is at the right cadence for the decision's materiality.</p>
 <hr />
 <h2 id="72-executive-dashboard-the-cisos-main-visibility-tool">7.2 Executive Dashboard — The CISO's Main Visibility Tool</h2>
-<p>The Executive Dashboard is the CISO's single source of truth for the engagement. It is real-time where possible, anonymised per the data-access protocol (§3.5), and structured into 8 tiles that map to the engagement's key metrics.</p>
+<p>The Executive Dashboard is the CISO's single source of truth for the engagement. It is real-time where possible, anonymised per the data-access protocol (#3.5), and structured into 8 tiles that map to the engagement's key metrics.</p>
 <h3 id="721-dashboard-structure-8-tiles">7.2.1 Dashboard Structure (8 Tiles)</h3>
 <pre><code>┌─────────────────────────────────────────────────────────────────────┐
 │  EV CELL CYBER RESILIENCE — EXECUTIVE DASHBOARD                      │
@@ -3777,7 +3777,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <tr>
 <td><strong>2</strong></td>
 <td><strong>Financial Exposure</strong></td>
-<td>COPQ avoided YTD ($M); Protected value realised ($M, vs §2.5 model); E_cyber band trend</td>
+<td>COPQ avoided YTD ($M); Protected value realised ($M, vs #2.5 model); E_cyber band trend</td>
 <td>Track B financial model; CISO exposure model</td>
 <td>Weekly</td>
 </tr>
@@ -3896,7 +3896,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 </tbody>
 </table>
-<p>All access logged; quarterly access audit by CISO team; data-access protocol (§3.5) governs the underlying query interface.</p>
+<p>All access logged; quarterly access audit by CISO team; data-access protocol (#3.5) governs the underlying query interface.</p>
 <h3 id="725-visual-standards">7.2.5 Visual Standards</h3>
 <ul>
 <li><strong>Time axis:</strong> last 12 weeks as default view; expandable to 24 weeks / 52 weeks</li>
@@ -4029,7 +4029,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 <tr>
 <td>30–60 min</td>
-<td><strong>Control plan audit:</strong> all controls reviewed against §4.6 control plan; deviations explained; Poka-Yoke enforcement verified</td>
+<td><strong>Control plan audit:</strong> all controls reviewed against #4.6 control plan; deviations explained; Poka-Yoke enforcement verified</td>
 <td>MBB + Track Leads</td>
 </tr>
 <tr>
@@ -4039,7 +4039,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 <tr>
 <td>90–120 min</td>
-<td><strong>COPQ &amp; protected value:</strong> financial outcome review against §2.5 model; FMEA RPN reduction analysis; Tier 2/3 escalation log</td>
+<td><strong>COPQ &amp; protected value:</strong> financial outcome review against #2.5 model; FMEA RPN reduction analysis; Tier 2/3 escalation log</td>
 <td>MBB + Finance (if available)</td>
 </tr>
 <tr>
@@ -4161,7 +4161,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h2 id="76-what-section-7-does-not-cover">7.6 What Section 7 Does Not Cover</h2>
 <p>Section 7 is the CISO governance cycle. The final substantive section covers:</p>
 <ul>
-<li><strong>§8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement, scope boundaries, engagement risks</li>
+<li><strong>#8 Constraints &amp; Risks</strong> — data-blind, confidentiality, vendor remote access, air-gap requirement, scope boundaries, engagement risks</li>
 <li><strong>Appendix A — CISO Elevator Pitch</strong> — standalone, ~1 page</li>
 <li><strong>Appendix B — CISO Executive Dashboard Mockup</strong> — standalone, visual mockup</li>
 </ul>
@@ -4171,7 +4171,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <h1 class="section-title">Section 8 — Constraints & Risks</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> Synthesis of §§1–7 constraints and risk surfaces, cross-referenced with OSI whitepaper Layer 4 (Governance &amp; Entropy Defence) principles</p>
+<strong>Source:</strong> Synthesis of ##1–7 constraints and risk surfaces, cross-referenced with OSI whitepaper Layer 4 (Governance &amp; Entropy Defence) principles</p>
 <p><strong>Emphasis:</strong> Explicit constraints (the hard boundaries), assumptions (what must be true for the engagement to succeed), engagement risks (what could go wrong), mitigations (how we address each), and residual risk acceptance (what remains after mitigations).</p>
 <hr />
 <h2 id="81-constraints">8.1 Constraints</h2>
@@ -4193,17 +4193,17 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 <tr>
 <td>All GB data access flows through the <strong>CISO-controlled anonymisation pipeline</strong></td>
-<td>CISO mandate (§3.5)</td>
+<td>CISO mandate (#3.5)</td>
 <td>Decoupling of operational data from engineering access is the binding trust boundary</td>
 </tr>
 <tr>
 <td>Anonymisation pipeline is <strong>CISO-team-owned and operated</strong>; GBs cannot modify</td>
-<td>CISO mandate (§3.5)</td>
+<td>CISO mandate (#3.5)</td>
 <td>Pipeline integrity is the structural guarantee of the data-blind architecture</td>
 </tr>
 <tr>
 <td>GB queries are <strong>logged and audited</strong>; quarterly third-party audit of the anonymisation pipeline</td>
-<td>CISO mandate (§3.5)</td>
+<td>CISO mandate (#3.5)</td>
 <td>Auditability is the only sustainable trust mechanism for the data-blind boundary</td>
 </tr>
 <tr>
@@ -4226,7 +4226,7 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <tbody>
 <tr>
 <td>Green Belt allocation: <strong>10% per GB, 1.9 FTE effective team</strong></td>
-<td>CISO capacity allocation (§5.7)</td>
+<td>CISO capacity allocation (#5.7)</td>
 <td>The 19 GBs have other primary duties; &gt;10% allocation would require a separate CISO decision and engagement re-scoping</td>
 </tr>
 <tr>
@@ -4264,17 +4264,17 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 </tr>
 <tr>
 <td>5 risk-based decision points (DP-1 through DP-4) may extend timeline by 1–2 weeks per point</td>
-<td>§5.8 design</td>
+<td>#5.8 design</td>
 <td>DPs are the safety valves for foreseeable risks; ad-hoc extension is not allowed</td>
 </tr>
 <tr>
 <td>Cross-site replication timeline: 5 sites in 15 months post-G5</td>
-<td>§6.5 design</td>
+<td>#6.5 design</td>
 <td>Replication is bounded by site MBB availability and the engagement MBB's mentorship capacity</td>
 </tr>
 <tr>
 <td>Bi-weekly briefing cadence is fixed (every 2 weeks)</td>
-<td>§7.3 design</td>
+<td>#7.3 design</td>
 <td>Cadence is the CISO's primary synchronous touchpoint; ad-hoc rescheduling signals crisis</td>
 </tr>
 </tbody>
@@ -4292,32 +4292,32 @@ CISO sign-off   |             ◆ |              ◆ |              ◆ |       
 <tbody>
 <tr>
 <td><strong>Air-gap requirement</strong> for safety-critical control systems (formation cycling, electrolyte injection)</td>
-<td>§4.5.3 Cyber Poka-Yoke</td>
+<td>#4.5.3 Cyber Poka-Yoke</td>
 <td>One-way data diodes on safety-critical paths prevent command injection; the only viable structural protection against RPN ≥ 320 safety modes</td>
 </tr>
 <tr>
 <td><strong>Cryptographic signing</strong> required for all process recipes (formation, coating, dosing, aging) and firmware updates</td>
-<td>§4.5.3 Poka-Yoke</td>
+<td>#4.5.3 Poka-Yoke</td>
 <td>Parameter integrity is the binding control for the 7 silent corruption modes in the FMEA</td>
 </tr>
 <tr>
 <td><strong>Vendor remote access</strong> must flow through authenticated broker with cryptographic handshake</td>
-<td>§4.5.3 Poka-Yoke; NIST SP 800-82</td>
+<td>#4.5.3 Poka-Yoke; NIST SP 800-82</td>
 <td>Vendor remote access is the #1 industrial ransomware vector (Dragos, Mandiant)</td>
 </tr>
 <tr>
 <td><strong>Legacy protocols</strong> (Telnet, FTP, SMBv1) must be decommissioned</td>
-<td>§4.5.2 Digital 5C Sort</td>
+<td>#4.5.2 Digital 5C Sort</td>
 <td>Legacy protocols are unauthenticated or weakly authenticated; the FMEA root cause for several top-12 modes</td>
 </tr>
 <tr>
 <td><strong>No direct VPN access</strong> for vendors or non-engagement personnel</td>
-<td>§4.5.3 Poka-Yoke</td>
+<td>#4.5.3 Poka-Yoke</td>
 <td>Direct VPN bypasses all access controls; the only viable vendor model is brokered</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Implication:</strong> The technical controls in §4.5 are not negotiable with vendors or internal teams. Any pushback escalates to the CISO.</p>
+<p><strong>Implication:</strong> The technical controls in #4.5 are not negotiable with vendors or internal teams. Any pushback escalates to the CISO.</p>
 <h3 id="815-regulatory-contractual-constraints">8.1.5 Regulatory &amp; Contractual Constraints</h3>
 <table>
 <thead>
@@ -4536,7 +4536,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 <p><strong>Active-mitigation risks (score ≥ 12):</strong> #1, #2, #3, #4
 <strong>Acceptable / monitor risks (score &lt; 12):</strong> #5, #6, #7, #8</p>
 <p><strong>Risks dropped from the original 12-risk draft (now covered by other mechanisms):</strong>
-- ~~#8 Cross-site MBB unavailability~~ — post-G5 only; covered by §6.5 site MBB certification pipeline
+- ~~#8 Cross-site MBB unavailability~~ — post-G5 only; covered by #6.5 site MBB certification pipeline
 - ~~#10 Key GB departure~~ — covered by cross-training in Standard Work + Kaizen trigger #6
 - ~~#11 OEM contractual change~~ — merged into #8 (regulatory/contractual change)
 - ~~#12 Structural change mid-engagement~~ — covered by Kaizen triggers #11–#13 with Tier 3 escalation</p>
@@ -4651,7 +4651,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 <h1 class="section-title">Appendix A — CISO Elevator Pitch</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> Polished from the pitch in <code>context/00-original-input.md</code> §CISO Elevator Pitch, expanded into three audience-tailored variants</p>
+<strong>Source:</strong> Polished from the pitch in <code>context/00-original-input.md</code> #CISO Elevator Pitch, expanded into three audience-tailored variants</p>
 <p><strong>Emphasis:</strong> Three pain points (silent corruption, IP exfiltration, COPQ) lead the CISO and Board variants, intertwined with safety, IP, and ROI/COPQ. The 30-Second variant compresses the same architecture into a single spoken paragraph.</p>
 <hr />
 <h2 id="a1-ciso-opening-the-primary-for-the-g1-meeting">A.1 CISO Opening (the primary, for the G1 meeting)</h2>
@@ -4670,7 +4670,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 <h3 id="the-ask-what-the-ciso-signs-off-on-at-g1">The ask — what the CISO signs off on at G1</h3>
 <p>You are the sole signatory on G1. The ask is:</p>
 <ol>
-<li><strong>Approve the charter</strong> — §§1–8 of this document, scope, team, 12-week timeline, 5 tollgates</li>
+<li><strong>Approve the charter</strong> — ##1–8 of this document, scope, team, 12-week timeline, 5 tollgates</li>
 <li><strong>Approve the data-access protocol</strong> — your team's anonymisation pipeline; GBs query only post-anonymisation outputs; quarterly third-party audit</li>
 <li><strong>Approve the 4 active-mitigation risks</strong> — the 4 risks at score ≥ 12, with explicit mitigations</li>
 <li><strong>Approve the 7 residual risks</strong> — the risks the engagement accepts, with explicit acknowledgement</li>
@@ -4679,7 +4679,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 <p><strong>This engagement makes your "zero cyber-induced downtime" mandate statistically verifiable, not aspirational.</strong></p>
 <hr />
 <h2 id="a2-board-pitch-for-executive-committee-annual-strategic-review">A.2 Board Pitch (for executive committee, Annual Strategic Review)</h2>
-<p><strong>Context:</strong> The pitch for executive committee members (CEO, COO, CFO) and the Annual Strategic Review (§7.5). ~5 minutes spoken. Frames the engagement as enterprise risk mitigation, not operational initiative. Same three pain points, board-level framing.</p>
+<p><strong>Context:</strong> The pitch for executive committee members (CEO, COO, CFO) and the Annual Strategic Review (#7.5). ~5 minutes spoken. Frames the engagement as enterprise risk mitigation, not operational initiative. Same three pain points, board-level framing.</p>
 <hr />
 <h3 id="the-three-pain-points-at-enterprise-scale">The three pain points — at enterprise scale</h3>
 <p><strong>1. Silent corruption is the failure class that produces recalls, field failures, and OEM contractual breach — and the only one that traditional cybersecurity cannot see.</strong></p>
@@ -4732,7 +4732,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 <h1 class="section-title">Appendix B — CISO Executive Dashboard Mockup</h1>
 <p><strong>Section status:</strong> Draft for review
 <strong>Reviewer:</strong> Olivia Key (MBB)
-<strong>Source:</strong> Compiled from §7.2 Executive Dashboard structure. Text-based mockup for the charter; a separate interactive HTML mockup is provided as a standalone deliverable.</p>
+<strong>Source:</strong> Compiled from #7.2 Executive Dashboard structure. Text-based mockup for the charter; a separate interactive HTML mockup is provided as a standalone deliverable.</p>
 <p><strong>Emphasis:</strong> Visual reference for the CISO's continuous visibility tool. Sample data is illustrative (Week 12 G5 state, anonymised, no real asset identifiers). The HTML mockup is the interactive version; this is the static reference.</p>
 <hr />
 <h2 id="b1-dashboard-overview-24-tile-grid">B.1 Dashboard Overview (2×4 Tile Grid)</h2>
@@ -5138,7 +5138,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 │  Access log: CISO team reviewed 2026-09-01                         │
 └──────────────────────────────────────────────────────────────────┘
 </code></pre>
-<p>The drill-down is fully anonymised per the data-access protocol (§3.5). Source data is accessible only via the CISO's anonymised data lake; the query ID is logged for audit.</p>
+<p>The drill-down is fully anonymised per the data-access protocol (#3.5). Source data is accessible only via the CISO's anonymised data lake; the query ID is logged for audit.</p>
 <hr />
 <h2 id="b7-what-appendix-b-does-not-cover">B.7 What Appendix B Does Not Cover</h2>
 <p>Appendix B is the static reference for the Executive Dashboard. The interactive HTML mockup is provided as a <strong>separate deliverable</strong> (see <code>deliverables/</code> folder) for the CISO meeting presentation. The final compiled charter includes both this static mockup and a link/reference to the interactive HTML version.</p>
@@ -5148,7 +5148,7 @@ Threshold:   ≥ 12  →  Active mitigation required
 
 <div class="footer">
   <strong>Cyber Resilience Project Charter</strong> — Global EV Cell Manufacturing — Phase 1 (Define) — 02 September 2026<br>
-  Anonymised content per the data-access protocol (§3.5). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
+  Anonymised content per the data-access protocol (#3.5). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
 </div>
 
 </body>
