@@ -79,7 +79,7 @@ Reuses the OSI whitepaper's P × E × M model: Exposure = P × E; Protected Valu
 | 11 | Slurry | Batch tracking malware → traceability | 7 × 5 × 7 | 245 |
 | 12 | Assembly | Authentication bypass → recipe change | 9 × 3 × 7 | 189 |
 
-**Silent corruption is the binding risk class.** This validates the structural decision to break it out as its own exposure line (§2) and the AI-augmented Layer 3 design (§5).
+**Silent corruption is the binding risk class.** This validates the structural decision to break it out as its own exposure line (#2) and the AI-augmented Layer 3 design (#5).
 
 ---
 
@@ -214,6 +214,6 @@ Same MBB methodology. Materially larger cost-of-no-action.
 ## 13. Engagement context
 
 - **Client:** Global EV cell manufacturing department ($1.2bn operation, $200M annual production value per department)
-- **Confidentiality constraint:** Internal network configurations, IP addresses, and proprietary systems protected by the data-access protocol (§6)
+- **Confidentiality constraint:** Internal network configurations, IP addresses, and proprietary systems protected by the data-access protocol (#6)
 - **Cross-site scope:** 5 production sites (Site 1 = origin, Sites 2-5 = replication over 15 months)
 - **Stakeholders:** CISO (Executive Sponsor), Operations Director, OT Engineering, IT Security, Safety Officer, Legal/Compliance, OEM customers

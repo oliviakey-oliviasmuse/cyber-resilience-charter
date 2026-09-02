@@ -55,7 +55,7 @@ This is the first formal release of the Cyber Resilience Project Charter for the
 - The capability target is **Z ≥ 6.0** (theoretical Six Sigma), not 4.5σ or 5σ
 - The implementation is **reference code**; production deployment requires adaptation to the specific OT environment
 - The public URLs are anonymised; no internal network configurations, IP addresses, or proprietary system details are exposed
-- The Data-Blind Protocol (§3.5 of the charter) is enforced at schema, query, and application levels — GBs and AI agents cannot access raw data even if they tried
+- The Data-Blind Protocol (#3.5 of the charter) is enforced at schema, query, and application levels — GBs and AI agents cannot access raw data even if they tried
 
 ### Roadmap
 

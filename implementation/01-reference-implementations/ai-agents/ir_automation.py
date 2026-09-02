@@ -15,7 +15,7 @@ FMEA modes addressed: Hard stop modes
 
 This agent is the bridge between detection (SOC Triage, OT Anomaly) and
 recovery (SMED rig). It executes the pre-authorised playbooks the CISO has
-approved (§3.4 Tier 0 Real-Time Incident).
+approved (#3.4 Tier 0 Real-Time Incident).
 
 All actions are:
 - Idempotent (safe to retry)

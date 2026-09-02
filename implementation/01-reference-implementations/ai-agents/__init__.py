@@ -1,7 +1,7 @@
 """
 Cyber Resilience AI Agents — Layer 3 of the 4-layer OSI translation.
 
-Four autonomous agents operating within the Data-Blind Protocol (§3.5 of the charter).
+Four autonomous agents operating within the Data-Blind Protocol (#3.5 of the charter).
 Each agent:
 - Queries ONLY the anonymised data lake
 - Has a CISO-controlled kill switch

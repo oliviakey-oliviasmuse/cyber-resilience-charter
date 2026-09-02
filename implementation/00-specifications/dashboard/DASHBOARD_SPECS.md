@@ -1,10 +1,10 @@
 # Executive Dashboard Specifications
 
-The CISO Executive Dashboard is the continuous visibility tool (§7.2 of the charter). 8 tiles, structured to map the engagement's key metrics. This specification defines the data sources, refresh cadence, alert thresholds, and access controls for each tile.
+The CISO Executive Dashboard is the continuous visibility tool (#7.2 of the charter). 8 tiles, structured to map the engagement's key metrics. This specification defines the data sources, refresh cadence, alert thresholds, and access controls for each tile.
 
 ## Charter reference
 
-§7.2 Executive Dashboard.
+Charter reference: #7.2 Executive Dashboard.
 
 ## Dashboard structure
 
@@ -58,7 +58,7 @@ The CISO Executive Dashboard is the continuous visibility tool (§7.2 of the cha
 
 **Metrics:**
 - COPQ Avoided YTD ($M)
-- Protected Value Realised ($M, vs §2.5 model)
+- Protected Value Realised ($M, vs #2.5 model)
 - E_cyber band trend
 - Per-event cost avoided breakdown (downtime, silent corruption, IP, regulatory)
 

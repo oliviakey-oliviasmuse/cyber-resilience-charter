@@ -8,7 +8,7 @@ is sent to a PLC. The PLC rejects any recipe that lacks a valid signature
 or whose signature does not match the recipe.
 
 This is the binding control for the 7 silent corruption modes (FMEA modes
-#1-7 in §4.4.3 of the charter). Without cryptographic signing, an attacker
+#1-7 in #4.4.3 of the charter). Without cryptographic signing, an attacker
 who compromises the SCADA could push a malicious recipe to a PLC. With
 signing, the PLC refuses the recipe — the attacker would also need the
 signing key, which is held in an HSM by Track A.

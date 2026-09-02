@@ -1,4 +1,4 @@
-﻿# Phase 1 (Define) Charter — Client Package
+# Phase 1 (Define) Charter — Client Package
 
 > **Cyber Resilience Project Charter for Global EV Cell Manufacturing** — Phase 1 (Define), Six Sigma aligned (Z ≥ 6.0), ready for CISO G1 review.
 
@@ -89,7 +89,7 @@ Looking forward to the G1 review.
 
 ## Confidentiality
 
-CONFIDENTIAL — CISO EYES ONLY. Anonymised per the Data-Access Protocol (§3.5 of the charter). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
+CONFIDENTIAL — CISO EYES ONLY. Anonymised per the Data-Access Protocol (#3.5 of the charter). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
 
 ## Engagement context
 

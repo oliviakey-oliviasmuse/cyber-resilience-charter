@@ -15,7 +15,7 @@
                                                        │ read-only query
                                                        ▼
 ┌────────────────────────────────────────────────────────────────────────────┐
-│           DATA-BLIND TRUST BOUNDARY  (§3.5 of the charter)                 │
+│           DATA-BLIND TRUST BOUNDARY  (#3.5 of the charter)                 │
 │                                                                              │
 │   ┌────────────────────────────────────────────────────────────────────┐   │
 │   │              19 GREEN BELTS × 10% = 1.9 FTE                        │   │

@@ -4,7 +4,7 @@ The Cyber-FMEA (Failure Mode and Effects Analysis) is the binding risk model for
 
 ## Charter reference
 
-§4.4 Cyber-FMEA Methodology.
+Charter reference: #4.4 Cyber-FMEA Methodology.
 
 ## Scoring methodology
 

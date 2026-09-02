@@ -2,7 +2,7 @@
 
 ## End-to-end data flow
 
-The engagement operates within a strict data-blind architecture (§3.5 of the charter). The data flow has four trust zones:
+The engagement operates within a strict data-blind architecture (#3.5 of the charter). The data flow has four trust zones:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -19,7 +19,7 @@ The engagement operates within a strict data-blind architecture (§3.5 of the ch
 │ ZONE 2: CISO ANONYMISATION PIPELINE  (CISO-team owned)                   │
 │                                                                           │
 │   - Strips PII, IP addresses, hostnames, vendor-specific identifiers       │
-│   - Produces only ALLOWED outputs (§3.5):                                │
+│   - Produces only ALLOWED outputs (#3.5):                                │
 │     - Time deltas (MTTD, MTTR, cycle time)                                │
 │     - Compliance % (patch, MFA, encryption)                              │
 │     - Defect rates, traffic volumes, event counts                        │
@@ -62,7 +62,7 @@ The engagement operates within a strict data-blind architecture (§3.5 of the ch
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
-## Data classification (§3.5)
+## Data classification (#3.5)
 
 | Class | Examples | Access |
 |---|---|---|
@@ -76,7 +76,7 @@ The engagement operates within a strict data-blind architecture (§3.5 of the ch
 1. GB or AI agent initiates query
          ↓
 2. Query interface validates against data classification
-   - ALLOWED patterns only (§3.5)
+   - ALLOWED patterns only (#3.5)
    - No write operations (INSERT/UPDATE/DELETE/DROP/ALTER/TRUNCATE/CREATE)
    - No restricted patterns (IP/hostname/raw data)
          ↓
@@ -120,7 +120,7 @@ The signing key NEVER leaves the HSM. Even if an attacker compromises the SCADA,
 
 ## Silent corruption detection (Layer 3 + Poka-Yoke #5)
 
-This is the binding control for the 7 silent corruption modes (FMEA #1-7 in §4.4.3):
+This is the binding control for the 7 silent corruption modes (FMEA #1-7 in #4.4.3):
 
 ```
 [ PLC applies signed recipe ]

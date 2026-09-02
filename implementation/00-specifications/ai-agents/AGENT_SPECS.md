@@ -1,6 +1,6 @@
 # AI Agent Specifications
 
-Four autonomous agents operating within the Data-Blind Protocol (§3.5 of the charter). Every agent:
+Four autonomous agents operating within the Data-Blind Protocol (#3.5 of the charter). Every agent:
 
 - Queries ONLY the anonymised data lake (never raw data)
 - Logs every action to the audit trail
@@ -15,7 +15,7 @@ Four autonomous agents operating within the Data-Blind Protocol (§3.5 of the ch
 
 **Performance target:** MTTD ≤ 2 min for known signatures (Six Sigma).
 
-**FMEA modes addressed:** All detection modes (#1–#12 in §4.4.3).
+**FMEA modes addressed:** All detection modes (#1–#12 in #4.4.3).
 
 **Inputs:**
 - Anonymised SIEM events (alert ID, timestamp, severity, anonymised source/target IDs)
@@ -126,7 +126,7 @@ class CyberAgent:
     """Base class for all 4 cyber resilience AI agents.
 
     Every agent:
-    - Operates within the Data-Blind Protocol (§3.5)
+    - Operates within the Data-Blind Protocol (#3.5)
     - Has a CISO-controlled kill switch
     - Logs every action to the audit trail
     - Targets Six Sigma capability (Cpk ≥ 2.0, Z ≥ 6.0)

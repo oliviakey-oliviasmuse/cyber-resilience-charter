@@ -2,7 +2,7 @@
 
 ## Operating model
 
-The engagement operates on a 4-tier model that maps to the §3.4 escalation matrix and the §7 governance cycle.
+The engagement operates on a 4-tier model that maps to the #3.4 escalation matrix and the #7 governance cycle.
 
 ### Tier 1 — Track Lead (24h SLA)
 
@@ -53,7 +53,7 @@ The engagement operates on a 4-tier model that maps to the §3.4 escalation matr
 **Scope:** Confirmed cyber event on a protected line
 **Authority:** MBB operational; CISO strategic (notified within 15 min)
 
-## Standard Work (§6.2 of the charter)
+## Standard Work (#6.2 of the charter)
 
 The 19 Green Belts execute the following routines at 10% weekly capacity allocation. Every routine has explicit cadence, owner, activity, deliverable, and escalation if missed.
 
@@ -84,7 +84,7 @@ The 19 Green Belts execute the following routines at 10% weekly capacity allocat
 |---|---|---|---|---|---|
 | **FMEA refresh** | All tracks | Review FMEA against new equipment, firmware updates, line software changes; recalculate RPN | Updated FMEA matrix; new failure modes identified | 8 h/GB | Tier 2 to MBB if RPN materially shifts |
 | **Control plan review** | MBB + Track Leads | Review control plan effectiveness; update SPC chart logic if needed | Updated control plan | 4 h/lead | Tier 3 to CISO if control plan structurally inadequate |
-| **Maturity score recalculation** | MBB | Recalculate maturity score (§6.4); identify capability gaps | Updated maturity score; gap remediation plan | 4 h/MBB | Tier 3 to CISO if maturity score drops |
+| **Maturity score recalculation** | MBB | Recalculate maturity score (#6.4); identify capability gaps | Updated maturity score; gap remediation plan | 4 h/MBB | Tier 3 to CISO if maturity score drops |
 | **Cross-site knowledge transfer** | MBB + GBs (rotating) | Transfer lessons learned, control plan updates, FMEA changes to other sites | Knowledge transfer log; site adoption confirmation | 8 h/GB | Tier 3 to CISO if site adoption fails |
 | **Threat landscape review** | Track C GBs + IT Security | Review emerging threats, APT campaigns, regulatory changes | Threat landscape brief; control plan update if needed | 4 h/GB | Tier 3 if new high-RPN failure mode identified |
 | **AI agent retraining** | Track C GBs | Retrain AI agents on updated baseline; validate performance post-retraining | Retrained agents; performance report | 8 h/GB | Tier 2 if retraining fails to recover baseline performance |
@@ -138,17 +138,17 @@ If patterns indicate drift, Track C Lead triggers AI agent retraining (quarterly
 
 ## Control plan execution
 
-The control plan (§4.6.3 of the charter) is the binding document for sustained operation. It defines:
+The control plan (#4.6.3 of the charter) is the binding document for sustained operation. It defines:
 
 - **Automated triggers:** if any SPC chart breaches UCL, the system automatically isolates the affected line segment before lateral spread
 - **Standard work:** every Green Belt follows the weekly / monthly / quarterly / annual routines
-- **Escalation discipline:** every anomaly is logged; UCL breaches trigger Tier 1/2 escalation per §3.4
+- **Escalation discipline:** every anomaly is logged; UCL breaches trigger Tier 1/2 escalation per #3.4
 - **Audit cadence:** bi-annual CISO audit, annual third-party audit
 - **FMEA refresh:** quarterly FMEA refresh to account for new equipment, firmware, line software
 
 ## Operational targets (Six Sigma-aligned)
 
-Every operational target maps to a §1.4.1 sub-process capability target:
+Every operational target maps to a #1.4.1 sub-process capability target:
 
 | Sub-process | Operational | Measured by |
 |---|---|---|
@@ -202,7 +202,7 @@ All tools are designed to be replaced/swapped without changing the engagement's 
 
 ## Continuous improvement (Kaizen)
 
-13 Kaizen triggers (§6.3 of the charter) initiate immediate response:
+13 Kaizen triggers (#6.3 of the charter) initiate immediate response:
 
 **Routine (Tier 1/2):**
 1. SPC UCL breach

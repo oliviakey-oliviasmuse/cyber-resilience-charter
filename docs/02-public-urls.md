@@ -12,7 +12,7 @@ Three public deployments of this engagement are live, anonymised, and Six Sigma-
 
 ## Use cases
 
-- **URL 1** → use for the CISO meeting pre-read; the CISO can read the full document and click into the dashboard from within §7
+- **URL 1** → use for the CISO meeting pre-read; the CISO can read the full document and click into the dashboard from within #7
 - **URL 2** → use as a separate handout or live demo; the CISO opens just the dashboard, no other content; useful for showing only the visual artefact in a board context
 - **URL 3** → backup, separate test environment, or clean URL for sharing with a different audience
 
@@ -66,7 +66,7 @@ To publish a separate, new site (different URL, fresh node), omit `node_id`. The
 
 ## Confidentiality
 
-All three deployments are **publicly accessible to anyone with the link**. The content is **anonymised per the Data-Access Protocol (§3.5 of the charter)**:
+All three deployments are **publicly accessible to anyone with the link**. The content is **anonymised per the Data-Access Protocol (#3.5 of the charter)**:
 
 - ✓ No real IP addresses, hostnames, MAC addresses
 - ✓ No vendor remote-access credentials

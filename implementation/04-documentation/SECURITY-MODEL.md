@@ -103,7 +103,7 @@ The implementation enforces a strict 4-zone trust model. Every component knows w
 - **Review cadence:** Monthly by CISO team, quarterly by 3rd party
 - **Retention:** 7 years minimum (regulatory requirement)
 
-## Data classification enforcement (§3.5)
+## Data classification enforcement (#3.5)
 
 The Data-Blind Protocol is enforced at three levels:
 

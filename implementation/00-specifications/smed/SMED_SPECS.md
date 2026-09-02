@@ -4,7 +4,7 @@ The SMED (Single-Minute Exchange of Die) repurposed from manufacturing changeove
 
 ## Charter reference
 
-§4.5.4 of the charter.
+Charter reference: #4.5.4 of the charter.
 
 ## External (pre-staged) recovery assets
 

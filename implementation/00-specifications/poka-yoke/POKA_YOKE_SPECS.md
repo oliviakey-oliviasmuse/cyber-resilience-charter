@@ -1,10 +1,10 @@
 # Cyber Poka-Yoke Specifications
 
-The 5 structural principles from §4.5.3 of the charter. Each principle is enforced as a security control, not a procedure.
+The 5 structural principles from #4.5.3 of the charter. Each principle is enforced as a security control, not a procedure.
 
 ## Principle 1: Hard-coded network isolation at PLC firmware level
 
-**Charter reference:** §4.5.3 — "Critical line PLCs reject any inbound traffic that does not originate from a locally authenticated, cryptographic handshake."
+**Charter reference:** #4.5.3 — "Critical line PLCs reject any inbound traffic that does not originate from a locally authenticated, cryptographic handshake."
 
 ### Interface
 
@@ -41,7 +41,7 @@ PLC_FIRMWARE.isolate(input_packet, peer_identity) -> Decision
 
 ## Principle 2: One-way data diodes on safety-critical paths
 
-**Charter reference:** §4.5.3 — "One-way data diodes on safety-critical paths (formation cycling, electrolyte injection)."
+**Charter reference:** #4.5.3 — "One-way data diodes on safety-critical paths (formation cycling, electrolyte injection)."
 
 ### Interface
 
@@ -73,7 +73,7 @@ DATA_DIODE.allow_direction(direction: 'in' | 'out', data: bytes) -> Decision
 
 ## Principle 3: Cryptographic recipe signing
 
-**Charter reference:** §4.5.3 — "Cryptographic recipe signing. PLCs reject unsigned or modified recipes."
+**Charter reference:** #4.5.3 — "Cryptographic recipe signing. PLCs reject unsigned or modified recipes."
 
 ### Interface
 
@@ -118,7 +118,7 @@ PLC_RECIPE_VERIFIER.apply_recipe(signed: SignedRecipe) -> bool
 
 ## Principle 4: Vendor remote access through authenticated broker
 
-**Charter reference:** §4.5.3 — "Vendor remote access through authenticated broker with cryptographic handshake. No direct VPN."
+**Charter reference:** #4.5.3 — "Vendor remote access through authenticated broker with cryptographic handshake. No direct VPN."
 
 ### Interface
 
@@ -155,7 +155,7 @@ VENDOR_BROKER.terminate(session) -> None
 
 ## Principle 5: Parameter drift interlocks with auto-isolation
 
-**Charter reference:** §4.5.3 — "Real-time comparison of process parameters against the signed baseline recipe. Drift beyond a defined threshold triggers automatic line isolation."
+**Charter reference:** #4.5.3 — "Real-time comparison of process parameters against the signed baseline recipe. Drift beyond a defined threshold triggers automatic line isolation."
 
 ### Interface
 

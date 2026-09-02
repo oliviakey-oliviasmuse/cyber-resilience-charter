@@ -1,10 +1,10 @@
 # Anonymised Data Lake Specifications
 
-The anonymised data lake is the CISO-team-owned data store that the 19 Green Belts and the 4 AI agents query. It enforces the Data-Blind Protocol (§3.5 of the charter).
+The anonymised data lake is the CISO-team-owned data store that the 19 Green Belts and the 4 AI agents query. It enforces the Data-Blind Protocol (#3.5 of the charter).
 
 ## Charter reference
 
-§3.5 Data-Access Governance (the Data-Blind Protocol).
+Charter reference: #3.5 Data-Access Governance (the Data-Blind Protocol).
 
 ## Trust boundary
 
@@ -22,7 +22,7 @@ The anonymised data lake is the CISO-team-owned data store that the 19 Green Bel
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-## Data classification (§3.5)
+## Data classification (#3.5)
 
 | Class | Examples | GB access | AI agent access |
 |---|---|---|---|

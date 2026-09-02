@@ -6,9 +6,9 @@ escalate genuine anomalies to human analysts.
 
 Performance target: MTTD ≤ 2 min for known signatures (Six Sigma, Cpk ≥ 2.0, Z ≥ 6.0).
 
-FMEA modes addressed: All detection modes (1-12 in §4.4.3 of the charter).
+FMEA modes addressed: All detection modes (1-12 in #4.4.3 of the charter).
 CISO kill switch: enabled via config flip. Logs every action.
-Data access: anonymised data lake only (§3.5).
+Data access: anonymised data lake only (#3.5).
 """
 
 from __future__ import annotations

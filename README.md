@@ -68,7 +68,7 @@ cyber-resilience-charter/
 
 ## Where to start
 
-- **If you are the CISO or an executive reviewer:** open [`docs/01-charter/charter.pdf`](docs/01-charter/charter.pdf) or the [HTML bundle](docs/01-charter/charter.html) in a browser. The CISO Elevator Pitch is in §A.1 of the charter.
+- **If you are the CISO or an executive reviewer:** open [`docs/01-charter/charter.pdf`](docs/01-charter/charter.pdf) or the [HTML bundle](docs/01-charter/charter.html) in a browser. The CISO Elevator Pitch is in #A.1 of the charter.
 - **If you are a Green Belt on the 19-engineer team:** start at [`implementation/README.md`](implementation/README.md) — it explains which track you're on and which files to read.
 - **If you are a technical reviewer:** start at [`implementation/04-documentation/ARCHITECTURE.md`](implementation/04-documentation/ARCHITECTURE.md) for the system view, then drill into the reference implementations.
 - **If you are an external consultant running a similar engagement:** this repo is a reference architecture. Read the methodology (DMAIC + FMEA + LSS MBB) and adapt.
@@ -96,7 +96,7 @@ The structural controls (Poka-Yoke, SMED, AI-augmented Layer 3, cryptographic si
 
 ## Five exposure classes
 
-The charter decomposes cyber exposure into five classes (§2.2):
+The charter decomposes cyber exposure into five classes (#2.2):
 
 1. **E_downtime** — hard-stop events (ransomware, wiper, MES compromise): $4M–$20M / yr / dept
 2. **E_silent_corruption** (broken out) — parameter tampering, no halt, in-line inspection passes, field failure: $5M–$50M / yr / dept
@@ -108,14 +108,14 @@ The charter decomposes cyber exposure into five classes (§2.2):
 
 ## Methodology map
 
-- **§1 Executive Summary** — engagement at a glance, strategic alignment, target outcomes (Six Sigma)
-- **§2 Business Case** — P × E × M model, 5 exposure classes, COPQ, multi-site multiplier, OSI comparison
-- **§3 CISO Strategic Alignment** — role architecture, RACI matrix, tollgate sign-off authority, escalation, **Data-Access Governance (the Data-Blind Protocol)**
-- **§4 DMAIC Methodology** — Define, Measure, Analyse, Improve, Control; **Cyber-FMEA top 12** (S recalibrated to 10 for SC modes); **Digital 5C**, **Cyber Poka-Yoke** (5 principles), **SMED for Disaster Recovery**, **AI-Augmented Layer 3** (4 agents)
-- **§5 Implementation Roadmap** — 12-week Gantt with 3 tracks, cross-track dependencies, **Track B critical path**, tollgate calendar, GB utilisation, risk-based decision points
-- **§6 Continuation & Standard Work** — Standard Work (weekly/monthly/quarterly/annual), **13 Cyber-Kaizen triggers**, Maturity Scoring, Cross-Site Replication
-- **§7 CISO Governance Cycle** — **8-tile Executive Dashboard**, bi-weekly briefings, bi-annual audits, annual strategic review
-- **§8 Constraints & Risks** — 5 constraint categories, 10 assumptions, **8-risk register**, residual risk acceptance, 10 entropy defence mechanisms
+- **#1 Executive Summary** — engagement at a glance, strategic alignment, target outcomes (Six Sigma)
+- **#2 Business Case** — P × E × M model, 5 exposure classes, COPQ, multi-site multiplier, OSI comparison
+- **#3 CISO Strategic Alignment** — role architecture, RACI matrix, tollgate sign-off authority, escalation, **Data-Access Governance (the Data-Blind Protocol)**
+- **#4 DMAIC Methodology** — Define, Measure, Analyse, Improve, Control; **Cyber-FMEA top 12** (S recalibrated to 10 for SC modes); **Digital 5C**, **Cyber Poka-Yoke** (5 principles), **SMED for Disaster Recovery**, **AI-Augmented Layer 3** (4 agents)
+- **#5 Implementation Roadmap** — 12-week Gantt with 3 tracks, cross-track dependencies, **Track B critical path**, tollgate calendar, GB utilisation, risk-based decision points
+- **#6 Continuation & Standard Work** — Standard Work (weekly/monthly/quarterly/annual), **13 Cyber-Kaizen triggers**, Maturity Scoring, Cross-Site Replication
+- **#7 CISO Governance Cycle** — **8-tile Executive Dashboard**, bi-weekly briefings, bi-annual audits, annual strategic review
+- **#8 Constraints & Risks** — 5 constraint categories, 10 assumptions, **8-risk register**, residual risk acceptance, 10 entropy defence mechanisms
 - **Appendix A** — 3 CISO pitch variants (CISO Opening / Board / 30-Second) + 2 sub-variants (OEM / IT Security peer)
 - **Appendix B** — Executive Dashboard Mockup (text + interactive HTML)
 
@@ -135,7 +135,7 @@ The charter decomposes cyber exposure into five classes (§2.2):
 | Phase 2 (Measure) | Pending G1 sign-off |
 | Phase 3 (Analyse) | Pending G2 sign-off |
 | Phase 4 (Improve) | Reference implementations complete (this repo) |
-| Phase 5 (Control) | Standard Work + Kaizen + Maturity scoring defined (§6) |
+| Phase 5 (Control) | Standard Work + Kaizen + Maturity scoring defined (#6) |
 | Continuation | Cross-site replication plan defined (Site 2-5 over 15 months) |
 
 ## Repository structure rationale
@@ -151,7 +151,7 @@ The split is deliberate: **the charter is the deliverable; the implementation is
 
 ## Confidentiality
 
-CONFIDENTIAL — CISO EYES ONLY. Anonymised per the Data-Access Protocol (§3.5 of the charter). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
+CONFIDENTIAL — CISO EYES ONLY. Anonymised per the Data-Access Protocol (#3.5 of the charter). Internal network configurations, IP addresses, hostnames, and proprietary system details are protected.
 
 ## License
 

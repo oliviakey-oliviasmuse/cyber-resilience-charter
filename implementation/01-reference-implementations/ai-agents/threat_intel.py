@@ -11,7 +11,7 @@ correlation coverage ≥ 90% of industry-relevant threats.
 FMEA modes addressed: All modes (preventive — covers new attack patterns
 that may not yet be in the FMEA).
 
-Data access: anonymised data lake only (§3.5).
+Data access: anonymised data lake only (#3.5).
 CISO kill switch: enabled via config flip.
 """
 

@@ -2,7 +2,7 @@
 
 **Six Sigma-aligned (Z ≥ 6.0) reference implementations for the OT cyber resilience engagement.**
 
-This folder contains the actual code the 19 Green Belts will deploy in **Phase 4 (Improve, Weeks 8–10)** of the 12-week engagement. Every component maps to a specific architectural choice in the Phase 1 charter (§4) and is sized for Six Sigma (Cpk ≥ 2.0) capability.
+This folder contains the actual code the 19 Green Belts will deploy in **Phase 4 (Improve, Weeks 8–10)** of the 12-week engagement. Every component maps to a specific architectural choice in the Phase 1 charter (#4) and is sized for Six Sigma (Cpk ≥ 2.0) capability.
 
 ## Folder structure
 
@@ -38,16 +38,16 @@ implementation/
 
 | Charter section | Component | Implementation |
 |---|---|---|
-| §3.5 Data-Access Governance | Anonymised data lake | `00-specifications/data-lake/`, `01-reference-implementations/data-lake/` |
-| §4.5.2 Digital 5C | Sort, Straighten, Shine, Standardise, Sustain | `03-deployment/` (legacy protocol decommission, DMZ setup, code standards) |
-| §4.5.3 Cyber Poka-Yoke | 5 structural principles | `00-specifications/poka-yoke/`, `01-reference-implementations/poka-yoke/` |
-| §4.5.4 SMED for Disaster Recovery | Internal→External step conversion | `00-specifications/smed/`, `01-reference-implementations/smed/` |
-| §4.5.5 AI-Augmented Layer 3 | 4 autonomous agents | `00-specifications/ai-agents/`, `01-reference-implementations/ai-agents/` |
-| §4.6.2 SPC | p-chart, I-MR chart, u-chart, Cpk trend | `01-reference-implementations/dashboard/spc/` |
-| §4.6.3 Control Plan | Automated triggers + isolation | `01-reference-implementations/fmea/` |
-| §6.2 Standard Work | Weekly/monthly/quarterly/annual routines | `01-reference-implementations/standard-work/` |
-| §6.3 Kaizen Triggers | 13 triggers + A3 generator | `01-reference-implementations/kaizen/` |
-| §7.2 Executive Dashboard | 8-tile dashboard + drill-down | `01-reference-implementations/dashboard/` |
+| #3.5 Data-Access Governance | Anonymised data lake | `00-specifications/data-lake/`, `01-reference-implementations/data-lake/` |
+| #4.5.2 Digital 5C | Sort, Straighten, Shine, Standardise, Sustain | `03-deployment/` (legacy protocol decommission, DMZ setup, code standards) |
+| #4.5.3 Cyber Poka-Yoke | 5 structural principles | `00-specifications/poka-yoke/`, `01-reference-implementations/poka-yoke/` |
+| #4.5.4 SMED for Disaster Recovery | Internal→External step conversion | `00-specifications/smed/`, `01-reference-implementations/smed/` |
+| #4.5.5 AI-Augmented Layer 3 | 4 autonomous agents | `00-specifications/ai-agents/`, `01-reference-implementations/ai-agents/` |
+| #4.6.2 SPC | p-chart, I-MR chart, u-chart, Cpk trend | `01-reference-implementations/dashboard/spc/` |
+| #4.6.3 Control Plan | Automated triggers + isolation | `01-reference-implementations/fmea/` |
+| #6.2 Standard Work | Weekly/monthly/quarterly/annual routines | `01-reference-implementations/standard-work/` |
+| #6.3 Kaizen Triggers | 13 triggers + A3 generator | `01-reference-implementations/kaizen/` |
+| #7.2 Executive Dashboard | 8-tile dashboard + drill-down | `01-reference-implementations/dashboard/` |
 
 ## Six Sigma alignment
 
@@ -65,7 +65,7 @@ The 4 AI agents are the structural answer to "how do you hold Z ≥ 6.0 when hum
 
 ## Data-Access Governance compliance
 
-All components respect the §3.5 Data-Blind Protocol:
+All components respect the #3.5 Data-Blind Protocol:
 
 - **AI agents query ONLY the anonymised data lake** (never raw data)
 - **GBs query ONLY via the locked, read-only query interface**

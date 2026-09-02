@@ -7,14 +7,14 @@ corruption — the largest exposure class).
 
 Performance target: MTTD ≤ 10 min for novel OT anomalies (Six Sigma, Cpk ≥ 2.0).
 
-FMEA modes addressed: Silent corruption modes 1-7 in §4.4.3 of the charter
+FMEA modes addressed: Silent corruption modes 1-7 in #4.4.3 of the charter
 (the binding risk class — 7 of 12 top modes, top 5 RPN ≥ 450, all S=10).
 
 This is the structurally most important agent because silent corruption is
 the failure class the original IT security perimeter cannot see (no halt
 event to alert on). The AI-augmented Layer 3 is the structural answer.
 
-Data access: anonymised data lake only (§3.5).
+Data access: anonymised data lake only (#3.5).
 CISO kill switch: enabled via config flip.
 """
 
@@ -38,7 +38,7 @@ from base import (
 
 
 # =============================================================================
-# Signed baseline (cryptographic recipe signing per §4.5.3 Poka-Yoke #3)
+# Signed baseline (cryptographic recipe signing per #4.5.3 Poka-Yoke #3)
 # =============================================================================
 
 

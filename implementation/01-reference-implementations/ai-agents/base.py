@@ -2,7 +2,7 @@
 Base class for the 4 cyber resilience AI agents.
 
 Every agent:
-- Operates within the Data-Blind Protocol (§3.5 of the charter)
+- Operates within the Data-Blind Protocol (#3.5 of the charter)
 - Has a CISO-controlled kill switch
 - Logs every action to the audit trail
 - Targets Six Sigma capability (Cpk ≥ 2.0, Z ≥ 6.0)
@@ -31,7 +31,7 @@ from typing import Any, Dict, List, Optional
 
 
 class Severity(Enum):
-    """Severity scale 1-10, matches the FMEA scoring system (§4.4.2 of charter)."""
+    """Severity scale 1-10, matches the FMEA scoring system (#4.4.2 of charter)."""
     MINIMAL = 1
     LOW = 2
     MINOR = 3
@@ -56,7 +56,7 @@ class AgentConfig:
     Attributes:
         agent_id: Stable identifier (e.g., "soc_triage", "ot_anomaly", "ir_automation", "threat_intel")
         description: Human-readable purpose statement
-        fmea_modes_addressed: List of FMEA mode numbers this agent handles (1-12, from §4.4.3)
+        fmea_modes_addressed: List of FMEA mode numbers this agent handles (1-12, from #4.4.3)
         mttd_target_sec: Target MTTD in seconds (Six Sigma capability)
         mttr_target_sec: Target MTTR in seconds (Six Sigma capability)
         false_positive_rate_max: Maximum acceptable FPR (e.g., 0.05 for ≤ 5%)
@@ -101,7 +101,7 @@ class AgentDecision:
 
 
 # =============================================================================
-# Data-Blind Protocol (§3.5)
+# Data-Blind Protocol (#3.5)
 # =============================================================================
 
 
@@ -156,7 +156,7 @@ class QueryResult:
 
 
 class DataAccessError(Exception):
-    """Raised when an agent attempts a data access that violates §3.5."""
+    """Raised when an agent attempts a data access that violates #3.5."""
     pass
 
 

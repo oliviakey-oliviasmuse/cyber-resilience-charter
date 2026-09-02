@@ -2,7 +2,7 @@
 Cyber Poka-Yoke #5: Parameter Drift Interlock with Auto-Isolation
 
 This is the structural enforcement for the 7 silent corruption modes
-(FMEA modes #1-7 in §4.4.3 of the charter). The largest exposure class
+(FMEA modes #1-7 in #4.4.3 of the charter). The largest exposure class
 in the engagement — silent corruption — is exactly the failure class that
 the original IT security perimeter cannot see (no halt event to alert on).
 

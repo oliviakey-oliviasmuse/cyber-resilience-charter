@@ -3,7 +3,7 @@ Anonymised Data Lake — GB Query Interface
 
 This is the read-only interface that the 19 Green Belts (and the 4 AI
 agents) use to query the anonymised data lake. The interface enforces
-the Data-Blind Protocol (§3.5 of the charter):
+the Data-Blind Protocol (#3.5 of the charter):
 
 - Read-only access (no writes)
 - Bounded results (max_rows, default 10000)
@@ -34,7 +34,7 @@ from typing import Any, Dict, List, Optional
 
 
 # =============================================================================
-# Data classification (§3.5)
+# Data classification (#3.5)
 # =============================================================================
 
 
@@ -184,7 +184,7 @@ class AnonymisedDataLake:
         )
 
     def _validate_query(self, sql: str) -> None:
-        """Validate the query against the data classification (§3.5).
+        """Validate the query against the data classification (#3.5).
 
         Raises DataAccessError if the query attempts to access restricted data.
         """
@@ -195,7 +195,7 @@ class AnonymisedDataLake:
             if re.search(pattern, sql_lower):
                 raise DataAccessError(
                     f"Query attempts to access restricted data: pattern '{pattern}' matched. "
-                    f"See §3.5 of the charter for the Data-Blind Protocol."
+                    f"See #3.5 of the charter for the Data-Blind Protocol."
                 )
 
         # Check for forbidden operations
