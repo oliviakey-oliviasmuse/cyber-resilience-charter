@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EV Cell Cyber Resilience — Executive Dashboard (Mockup)</title>
+<style>
+  :root {
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --amber-border: #fde68a;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --red-border: #fecaca;
+    --ink: #0f172a;
+    --ink-2: #334155;
+    --ink-3: #64748b;
+    --line: #e2e8f0;
+    --bg: #f8fafc;
+    --tile: #ffffff;
+    --accent: #1e40af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 24px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 24px 32px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .header .sub {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .header .meta {
+    text-align: right;
+    font-size: 13px;
+    color: #cbd5e1;
+  }
+  .header .status-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin-left: 8px;
+  }
+  .status-pill.green { background: var(--green); color: #fff; }
+  .status-pill.amber { background: var(--amber); color: #fff; }
+  .status-pill.red { background: var(--red); color: #fff; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .tile {
+    background: var(--tile);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+  }
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+  .tile-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tile-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+  }
+  .tile-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+  .tile-refresh {
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .tile-body {
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .kpi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 10px 0;
+  }
+  .kpi-label {
+    font-size: 12px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .kpi-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .kpi-value.green { color: var(--green); }
+  .kpi-value.amber { color: var(--amber); }
+  .kpi-value.red { color: var(--red); }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-top: 2px;
+  }
+  .target-line {
+    color: var(--ink-3);
+    font-size: 11px;
+  }
+
+  /* Bar chart (Tile 1) */
+  .bar-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 60px 70px;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 12px;
+  }
+  .bar-track {
+    height: 8px;
+    background: var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+  .bar-fill.green { background: var(--green); }
+  .bar-fill.amber { background: var(--amber); }
+  .bar-fill.red { background: var(--red); }
+
+  /* Z-Score trend (Tile 1) */
+  .z-trend {
+    margin: 12px 0;
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .z-trend-line {
+    height: 60px;
+    position: relative;
+    background: linear-gradient(to bottom, transparent 0%, transparent 100%);
+  }
+  .z-trend-line svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Breakdown (Tile 2) */
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 12px;
+  }
+  .breakdown-row .label { color: var(--ink-2); }
+  .breakdown-row .value { font-weight: 600; color: var(--ink); }
+
+  /* Trigger frequency (Tile 5) */
+  .trigger-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 40px;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+    font-size: 11px;
+  }
+
+  /* Site table (Tile 7) */
+  .site-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+  }
+  .site-table th {
+    text-align: left;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    padding: 6px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-table td {
+    padding: 6px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .pill.green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .pill.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .pill.red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .pill.gray { background: #f1f5f9; color: var(--ink-3); border: 1px solid var(--line); }
+
+  /* Maturity bars (Tile 6) */
+  .maturity-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 30px;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
+    font-size: 11px;
+  }
+  .maturity-track {
+    height: 6px;
+    background: var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .maturity-fill {
+    height: 100%;
+    background: var(--green);
+  }
+  .maturity-fill.partial { background: var(--amber); }
+  .maturity-fill.none { background: var(--line); }
+
+  /* Drill-down modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    z-index: 100;
+    padding: 32px;
+    overflow-y: auto;
+  }
+  .modal.active { display: flex; align-items: flex-start; justify-content: center; }
+  .modal-content {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+    margin-top: 32px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--bg);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--ink-2);
+  }
+  .modal-close:hover { background: var(--line); }
+  .modal h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .modal .modal-sub {
+    color: var(--ink-3);
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .modal .meta-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: var(--ink-3);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--ink-3);
+    font-size: 12px;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .header .meta { text-align: left; }
+    .bar-row, .trigger-row, .maturity-row { grid-template-columns: 100px 1fr 50px 60px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>EV Cell Cyber Resilience — Executive Dashboard</h1>
+    <div class="sub">Anonymised | MBB Project Charter | G5 Mockup (illustrative data)</div>
+  </div>
+  <div class="meta">
+    <div>Engagement Z-Score: <strong style="color:#fff;">6.0</strong> <span class="status-pill green">GREEN</span> (Six Sigma target met)</div>
+    <div class="sub" style="margin-top:6px;">Last refresh: 2026-09-02 09:00 UTC | CISO view</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- TILE 1: PROCESS CAPABILITY -->
+  <div class="tile" onclick="openDrill('t1')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 1</div>
+        <div class="tile-title">Process Capability</div>
+      </div>
+      <div class="tile-refresh">Refresh: Daily</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">Engagement Z-Score</span>
+        <span class="kpi-value green">6.0 <span style="font-size:12px;color:var(--ink-3);">/ 6.0 Six Sigma target</span></span>
+      </div>
+      <div class="kpi-sub">12-week trend: improving from 3.8 → 6.0 (Six Sigma achieved)</div>
+      <div class="z-trend">
+        <svg viewBox="0 0 280 50" preserveAspectRatio="none" style="width:100%;height:50px;">
+          <line x1="0" y1="5" x2="280" y2="5" stroke="#dc2626" stroke-dasharray="3,2" stroke-width="0.5"/>
+          <polyline fill="none" stroke="#1e40af" stroke-width="2" points="0,45 25,40 50,32 75,26 100,20 125,16 150,12 175,10 200,8 225,6 250,5 275,5"/>
+          <text x="0" y="3" font-size="6" fill="#dc2626">Z=6.0 Six Sigma target</text>
+        </svg>
+      </div>
+      <div class="bar-row">
+        <span>Detection (known)</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:100%"></div></div>
+        <span style="text-align:right;">2.1</span>
+        <span class="pill green">GREEN</span>
+      </div>
+      <div class="bar-row">
+        <span>Detection (novel)</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:97%"></div></div>
+        <span style="text-align:right;">2.05</span>
+        <span class="pill green">GREEN</span>
+      </div>
+      <div class="bar-row">
+        <span>Response (hard stop)</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:100%"></div></div>
+        <span style="text-align:right;">2.1</span>
+        <span class="pill green">GREEN</span>
+      </div>
+      <div class="bar-row">
+        <span>Response (compromise)</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:95%"></div></div>
+        <span style="text-align:right;">2.0</span>
+        <span class="pill green">GREEN</span>
+      </div>
+      <div class="bar-row">
+        <span>Prevention (patch)</span>
+        <div class="bar-track"><div class="bar-fill green" style="width:100%"></div></div>
+        <span style="text-align:right;">2.1</span>
+        <span class="pill green">GREEN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 2: FINANCIAL EXPOSURE -->
+  <div class="tile" onclick="openDrill('t2')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 2</div>
+        <div class="tile-title">Financial Exposure</div>
+      </div>
+      <div class="tile-refresh">Refresh: Weekly</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">COPQ Avoided YTD</span>
+        <span class="kpi-value green">$1.8M</span>
+      </div>
+      <div class="kpi-row">
+        <span class="kpi-label">Protected Value Realised</span>
+        <span class="kpi-value green">$32M</span>
+      </div>
+      <div class="kpi-sub">vs $5M-$45M conservative per-dept band</div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
+        <div class="kpi-sub" style="margin-bottom:6px;font-weight:600;color:var(--ink);">Per-event cost avoided:</div>
+        <div class="breakdown-row"><span class="label">Downtime avoidance</span><span class="value">$8M</span></div>
+        <div class="breakdown-row"><span class="label">Silent corruption avoided</span><span class="value">$14M</span></div>
+        <div class="breakdown-row"><span class="label">IP protection</span><span class="value">$6M</span></div>
+        <div class="breakdown-row"><span class="label">Regulatory fines avoided</span><span class="value">$4M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 3: VELOCITY METRICS -->
+  <div class="tile" onclick="openDrill('t3')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 3</div>
+        <div class="tile-title">Velocity Metrics</div>
+      </div>
+      <div class="tile-refresh">Refresh: Daily</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">MTTD (known signatures)</span>
+        <span class="kpi-value green">1.5<span style="font-size:13px;color:var(--ink-3);"> min</span></span>
+      </div>
+      <div class="kpi-sub">Target: ≤ 2 min (Six Sigma) — GREEN</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">MTTD (novel OT anomalies)</span>
+        <span class="kpi-value green">8<span style="font-size:13px;color:var(--ink-3);"> min</span></span>
+      </div>
+      <div class="kpi-sub">Target: ≤ 10 min (AI-augmented, Six Sigma) — GREEN</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">MTTR (hard stop)</span>
+        <span class="kpi-value green">0.8<span style="font-size:13px;color:var(--ink-3);"> hr</span></span>
+      </div>
+      <div class="kpi-sub">Target: ≤ 1 hr (Six Sigma) — GREEN</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">MTTR (OT compromise)</span>
+        <span class="kpi-value green">7<span style="font-size:13px;color:var(--ink-3);"> hr</span></span>
+      </div>
+      <div class="kpi-sub">Target: ≤ 8 hr (Six Sigma) — GREEN</div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--ink-3);">
+        AI Agents: SOC Triage ✓ | OT Anomaly ✓ | IR Auto ✓ | Threat Intel ✓
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 4: RISK MITIGATION -->
+  <div class="tile" onclick="openDrill('t4')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 4</div>
+        <div class="tile-title">Risk Mitigation</div>
+      </div>
+      <div class="tile-refresh">Refresh: Daily</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">Top RPN (Formation aging)</span>
+        <span class="kpi-value amber">540</span>
+      </div>
+      <div class="kpi-sub">Pre-engagement: 980 → Post: 220 (78% reduction on this mode)</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">Top 10 RPN reduction (vs pre)</span>
+        <span class="kpi-value green">82%</span>
+      </div>
+      <div class="kpi-sub">Target: ≥ 80% (Six Sigma) — GREEN</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">Patch compliance</span>
+        <span class="kpi-value green">99.4%</span>
+      </div>
+      <div class="kpi-sub">Target: ≥ 99% (Six Sigma) — GREEN</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">Vendor access compliance</span>
+        <span class="kpi-value green">100%</span>
+      </div>
+      <div class="kpi-sub">Target: 100% — GREEN</div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--ink-3);">
+        FMEA last refresh: 2026-08-15 (quarterly cadence)
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 5: KAIZEN ACTIVITY -->
+  <div class="tile" onclick="openDrill('t5')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 5</div>
+        <div class="tile-title">Kaizen Activity</div>
+      </div>
+      <div class="tile-refresh">Refresh: Daily</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">Open Kaizens</span>
+        <span class="kpi-value amber">3</span>
+      </div>
+      <div class="kpi-sub">A3 close-out median: 4.2 BD (target ≤ 5 BD)</div>
+      <div class="kpi-row" style="margin-top:10px;">
+        <span class="kpi-label">Closed YTD</span>
+        <span class="kpi-value green">12</span>
+      </div>
+      <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--line);">
+        <div class="kpi-sub" style="font-weight:600;color:var(--ink);margin-bottom:6px;">Trigger frequency (YTD):</div>
+        <div class="trigger-row"><span>SPC UCL breach</span><div class="bar-track"><div class="bar-fill amber" style="width:50%"></div></div><span>4</span></div>
+        <div class="trigger-row"><span>New asset ingress</span><div class="bar-track"><div class="bar-fill amber" style="width:38%"></div></div><span>3</span></div>
+        <div class="trigger-row"><span>Industry peer event</span><div class="bar-track"><div class="bar-fill amber" style="width:25%"></div></div><span>2</span></div>
+        <div class="trigger-row"><span>MTTR breach in drill</span><div class="bar-track"><div class="bar-fill amber" style="width:13%"></div></div><span>1</span></div>
+        <div class="trigger-row"><span>Regulatory change</span><div class="bar-track"><div class="bar-fill amber" style="width:13%"></div></div><span>1</span></div>
+        <div class="trigger-row"><span>Tooling change</span><div class="bar-track"><div class="bar-fill amber" style="width:13%"></div></div><span>1</span></div>
+        <div class="trigger-row"><span>Personnel, audit, AI, process, supply, M&A, IP</span><div class="bar-track"><div class="bar-fill" style="width:0;background:transparent;"></div></div><span>0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 6: MATURITY SCORE -->
+  <div class="tile" onclick="openDrill('t6')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 6</div>
+        <div class="tile-title">Maturity Score</div>
+      </div>
+      <div class="tile-refresh">Refresh: Quarterly</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">Current Level</span>
+        <span class="kpi-value green">4</span>
+      </div>
+      <div class="kpi-sub">Quantitatively Managed (target: sustained)</div>
+      <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--line);">
+        <div class="kpi-sub" style="font-weight:600;color:var(--ink);margin-bottom:6px;">Sub-indicators (0-2 each):</div>
+        <div class="maturity-row"><span>Standard Work</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>FMEA refresh</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>SPC active</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>Cpk measured</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>AI agents operational</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>Poka-Yoke enforced</span><div class="maturity-track"><div class="maturity-fill partial" style="width:50%"></div></div><span>1/2</span></div>
+        <div class="maturity-row"><span>Kaizen cycle</span><div class="maturity-track"><div class="maturity-fill" style="width:100%"></div></div><span>2/2</span></div>
+        <div class="maturity-row"><span>Cross-site audit</span><div class="maturity-track"><div class="maturity-fill none" style="width:0%"></div></div><span>0/2</span></div>
+        <div style="margin-top:8px;font-size:13px;font-weight:700;color:var(--ink);">Total: 13/16 (81%) ↗</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 7: CROSS-SITE STATUS -->
+  <div class="tile" onclick="openDrill('t7')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 7</div>
+        <div class="tile-title">Cross-Site Status</div>
+      </div>
+      <div class="tile-refresh">Refresh: Monthly</div>
+    </div>
+    <div class="tile-body">
+      <table class="site-table">
+        <thead>
+          <tr><th>Site</th><th>Status</th><th>Maturity</th><th>Z-Score</th><th>Phase</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Site 1</strong></td>
+            <td><span class="pill green">ACTIVE</span></td>
+            <td>Level 4</td>
+            <td>4.2</td>
+            <td>G5 complete</td>
+          </tr>
+          <tr>
+            <td><strong>Site 2</strong></td>
+            <td><span class="pill amber">ONBOARD</span></td>
+            <td>Level 2</td>
+            <td>2.8</td>
+            <td>Wk 8 of 12</td>
+          </tr>
+          <tr>
+            <td><strong>Site 3</strong></td>
+            <td><span class="pill gray">PENDING</span></td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>M7-9</td>
+          </tr>
+          <tr>
+            <td><strong>Site 4</strong></td>
+            <td><span class="pill gray">PENDING</span></td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>M10-12</td>
+          </tr>
+          <tr>
+            <td><strong>Site 5</strong></td>
+            <td><span class="pill gray">PENDING</span></td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>M13-15</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--ink-3);">
+        Enterprise benchmark: M18+ | Cross-site audit exchange: Quarterly
+      </div>
+    </div>
+  </div>
+
+  <!-- TILE 8: REGULATORY & COMPLIANCE -->
+  <div class="tile" onclick="openDrill('t8')">
+    <div class="tile-head">
+      <div>
+        <div class="tile-num">TILE 8</div>
+        <div class="tile-title">Regulatory & Compliance</div>
+      </div>
+      <div class="tile-refresh">Refresh: Monthly</div>
+    </div>
+    <div class="tile-body">
+      <div class="kpi-row">
+        <span class="kpi-label">NIS2 (EU)</span>
+        <span class="pill green">COMPLIANT</span>
+      </div>
+      <div class="kpi-sub">Last audit: 2026-Q2</div>
+      <div class="kpi-row" style="margin-top:8px;">
+        <span class="kpi-label">IEC 62443</span>
+        <span class="pill green">COMPLIANT</span>
+      </div>
+      <div class="kpi-sub">Last audit: 2026-Q2</div>
+      <div class="kpi-row" style="margin-top:8px;">
+        <span class="kpi-label">OEM Cyber Attestation</span>
+        <span class="pill green">COMPLIANT</span>
+      </div>
+      <div class="kpi-sub">VW, BMW, Stellantis + others (last attest: 2026-Q2)</div>
+      <div class="kpi-row" style="margin-top:8px;">
+        <span class="kpi-label">GDPR</span>
+        <span class="pill green">COMPLIANT</span>
+      </div>
+      <div class="kpi-row" style="margin-top:8px;">
+        <span class="kpi-label">EU PLD 2024/2853</span>
+        <span class="pill green">CONTROLS OP.</span>
+      </div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line);">
+        <div class="breakdown-row"><span class="label">Open audit findings</span><span class="value" style="color:var(--green);">0</span></div>
+        <div class="breakdown-row"><span class="label">Pending reg. changes</span><span class="value">1</span></div>
+        <div class="breakdown-row"><span class="label">OEM renewals (90d)</span><span class="value">2</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  EV Cell Cyber Resilience — Executive Dashboard Mockup | CISO View | Anonymised | Sample G5 data (illustrative)<br>
+  For full data-access governance see §3.5 of the Project Charter. Dashboard is interactive: click any tile for drill-down.
+</div>
+
+<!-- DRILL-DOWN MODAL -->
+<div class="modal" id="drillModal">
+  <div class="modal-content" id="drillContent">
+    <button class="modal-close" onclick="closeDrill()">×</button>
+    <h2 id="drillTitle"></h2>
+    <div class="modal-sub" id="drillSub"></div>
+    <div class="meta-row" id="drillMeta"></div>
+    <div id="drillBody"></div>
+  </div>
+</div>
+
+<script>
+  const drillData = {
+    t1: {
+      title: 'DRILL-DOWN: Process Capability — Detection (Novel OT Anomalies)',
+      sub: 'Sub-process with AMBER status; Cpk = 1.7, Z = 4.0 (target Z = 4.5)',
+      meta: ['Refresh: Daily', 'Last refresh: 2026-09-02 09:00 UTC', 'Source: Anonymised data lake', 'Access: MBB + CISO'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Capability distribution (last 30 days)</h3>
+        <div class="bar-row"><span>Mean MTTD</span><div class="bar-track"><div class="bar-fill green" style="width:56%"></div></div><span style="text-align:right;">28 min</span><span class="target-line">/ ≤ 30</span></div>
+        <div class="bar-row"><span>Median MTTD</span><div class="bar-track"><div class="bar-fill green" style="width:52%"></div></div><span style="text-align:right;">26 min</span><span class="target-line">/ ≤ 30</span></div>
+        <div class="bar-row"><span>P95 MTTD</span><div class="bar-track"><div class="bar-fill amber" style="width:78%"></div></div><span style="text-align:right;">47 min</span><span class="target-line">/ ≤ 30</span></div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">AI agent contribution</h3>
+        <div class="bar-row"><span>OT Anomaly Agent</span><div class="bar-track"><div class="bar-fill green" style="width:78%"></div></div><span style="text-align:right;">78%</span><span class="target-line">of detections</span></div>
+        <div class="bar-row"><span>Human analyst</span><div class="bar-track"><div class="bar-fill amber" style="width:22%"></div></div><span style="text-align:right;">22%</span><span class="target-line">of detections</span></div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Recent MTTD breaches (P95 &gt; 30 min)</h3>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:10px;border-radius:6px;border:1px solid var(--line);">
+          <div style="margin:4px 0;">• 2026-08-29: Novel anomaly in coating line (MTTD 38 min) — investigated, A3 closed</div>
+          <div style="margin:4px 0;">• 2026-08-22: Novel anomaly in formation cycling (MTTD 41 min) — Kaizen #7 open, A3 in progress</div>
+        </div>
+        <p style="margin-top:14px;font-size:11px;color:var(--ink-3);">Source: Anonymised data lake, query ID query_a3f7b2. Access log: CISO team reviewed 2026-09-01.</p>
+      `
+    },
+    t2: {
+      title: 'DRILL-DOWN: Financial Exposure — Protected Value Realised',
+      sub: 'YTD performance vs the §2.5 conservative model ($5M-$45M per-dept, $25M-$225M 5-site)',
+      meta: ['Refresh: Weekly', 'Last refresh: 2026-09-01', 'Currency: USD', 'Source: MBB financial model + CISO exposure model'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Protected value breakdown ($32M YTD)</h3>
+        <div class="breakdown-row"><span class="label">Downtime avoidance</span><span class="value">$8M (25%)</span></div>
+        <div class="breakdown-row"><span class="label">Silent corruption avoided</span><span class="value">$14M (44%)</span></div>
+        <div class="breakdown-row"><span class="label">IP protection</span><span class="value">$6M (19%)</span></div>
+        <div class="breakdown-row"><span class="label">Regulatory fines avoided</span><span class="value">$4M (12%)</span></div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">5-site enterprise protected value</h3>
+        <div class="breakdown-row"><span class="label">Conservative (M=25%)</span><span class="value">$25M-$225M / yr</span></div>
+        <div class="breakdown-row"><span class="label">Aggressive (M=50%)</span><span class="value">$50M-$450M / yr</span></div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Realised this quarter</h3>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:10px;border-radius:6px;border:1px solid var(--line);">
+          <div style="margin:4px 0;">• 1 silent corruption event detected by AI agent, contained within 24 min (MTTD 22 min)</div>
+          <div style="margin:4px 0;">• 0 hard-stop events; SMED recovery rig validated in 3 monthly drills</div>
+          <div style="margin:4px 0;">• 2 vendor remote-access anomalies blocked at the broker</div>
+          <div style="margin:4px 0;">• 0 IP exfiltration indicators; OT anomaly agent operating in steady state</div>
+        </div>
+      `
+    },
+    t3: {
+      title: 'DRILL-DOWN: Velocity Metrics — MTTD/MTTR Trending',
+      sub: 'All four velocity metrics within target; AI-augmented Layer 3 operational',
+      meta: ['Refresh: Daily', 'Last refresh: 2026-09-02 09:00 UTC', 'Source: SIEM + IR logs + AI agent telemetry'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">12-week trend (all four metrics)</h3>
+        <svg viewBox="0 0 600 180" style="width:100%;height:200px;background:var(--bg);border-radius:6px;border:1px solid var(--line);">
+          <line x1="40" y1="20" x2="40" y2="160" stroke="#cbd5e1" stroke-width="1"/>
+          <line x1="40" y1="160" x2="580" y2="160" stroke="#cbd5e1" stroke-width="1"/>
+          <!-- Y-axis labels -->
+          <text x="35" y="24" font-size="9" fill="#64748b" text-anchor="end">30</text>
+          <text x="35" y="60" font-size="9" fill="#64748b" text-anchor="end">20</text>
+          <text x="35" y="100" font-size="9" fill="#64748b" text-anchor="end">10</text>
+          <text x="35" y="160" font-size="9" fill="#64748b" text-anchor="end">0</text>
+          <!-- Target lines -->
+          <line x1="40" y1="20" x2="580" y2="20" stroke="#dc2626" stroke-dasharray="3,2" stroke-width="0.5"/>
+          <text x="585" y="22" font-size="8" fill="#dc2626">≤ 30 min</text>
+          <!-- MTTD novel (declining) -->
+          <polyline fill="none" stroke="#1e40af" stroke-width="2" points="60,150 100,120 140,90 180,75 220,65 260,55 300,48 340,42 380,38 420,35 460,32 500,30 540,28"/>
+          <text x="50" y="145" font-size="9" fill="#1e40af">MTTD novel</text>
+          <!-- MTTD known (flat near bottom) -->
+          <polyline fill="none" stroke="#16a34a" stroke-width="2" points="60,158 100,156 140,154 180,153 220,152 260,151 300,151 340,150 380,150 420,149 460,148 500,148 540,148"/>
+          <text x="50" y="170" font-size="9" fill="#16a34a">MTTD known</text>
+          <!-- MTTR hard stop (scaled, separate axis) -->
+          <line x1="40" y1="20" x2="580" y2="20" stroke="#d97706" stroke-dasharray="3,2" stroke-width="0.5" opacity="0.3"/>
+          <!-- X-axis labels -->
+          <text x="60" y="175" font-size="8" fill="#64748b">W1</text>
+          <text x="280" y="175" font-size="8" fill="#64748b">W6</text>
+          <text x="500" y="175" font-size="8" fill="#64748b">W12</text>
+        </svg>
+        <h3 style="font-size:14px;margin:16px 0 8px;">AI agent status (last 24h)</h3>
+        <div class="breakdown-row"><span class="label">SOC Triage Agent</span><span class="value" style="color:var(--green);">OPERATIONAL (last action: 2h ago)</span></div>
+        <div class="breakdown-row"><span class="label">OT Anomaly Detection Agent</span><span class="value" style="color:var(--green);">OPERATIONAL (last action: 18m ago)</span></div>
+        <div class="breakdown-row"><span class="label">IR Automation Agent</span><span class="value" style="color:var(--green);">OPERATIONAL (last action: 4d ago)</span></div>
+        <div class="breakdown-row"><span class="label">Threat Intel Correlation Agent</span><span class="value" style="color:var(--green);">OPERATIONAL (last action: 1h ago)</span></div>
+      `
+    },
+    t4: {
+      title: 'DRILL-DOWN: Risk Mitigation — Top 10 FMEA RPN Reduction',
+      sub: 'Engagement target: ≥ 80% RPN reduction (Six Sigma); achieved 82%',
+      meta: ['Refresh: Daily + Quarterly FMEA', 'Last FMEA refresh: 2026-08-15', 'Source: Track B FMEA register'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Top 10 RPN (pre vs post engagement)</h3>
+        <div class="bar-row"><span>#1 Formation aging (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:55%"></div></div><span style="text-align:right;">540</span><span class="target-line">↓ 980</span></div>
+        <div class="bar-row"><span>#2 Coating thickness (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:50%"></div></div><span style="text-align:right;">490</span><span class="target-line">↓ 950</span></div>
+        <div class="bar-row"><span>#3 Slurry sensor (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:49%"></div></div><span style="text-align:right;">480</span><span class="target-line">↓ 920</span></div>
+        <div class="bar-row"><span>#4 Grading capacity (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:46%"></div></div><span style="text-align:right;">450</span><span class="target-line">↓ 880</span></div>
+        <div class="bar-row"><span>#5 Coating vision (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:46%"></div></div><span style="text-align:right;">450</span><span class="target-line">↓ 880</span></div>
+        <div class="bar-row"><span>#6 Assembly stacking (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:41%"></div></div><span style="text-align:right;">400</span><span class="target-line">↓ 850</span></div>
+        <div class="bar-row"><span>#7 Grading IR (SC)</span><div class="bar-track"><div class="bar-fill green" style="width:37%"></div></div><span style="text-align:right;">360</span><span class="target-line">↓ 800</span></div>
+        <div class="bar-row"><span>#8 Formation charging</span><div class="bar-track"><div class="bar-fill green" style="width:36%"></div></div><span style="text-align:right;">350</span><span class="target-line">↓ 750</span></div>
+        <div class="bar-row"><span>#9 Slurry ransomware</span><div class="bar-track"><div class="bar-fill green" style="width:34%"></div></div><span style="text-align:right;">336</span><span class="target-line">↓ 720</span></div>
+        <div class="bar-row"><span>#10 Electrolyte dosing</span><div class="bar-track"><div class="bar-fill green" style="width:33%"></div></div><span style="text-align:right;">320</span><span class="target-line">↓ 700</span></div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Compliance posture</h3>
+        <div class="breakdown-row"><span class="label">Patch compliance</span><span class="value" style="color:var(--green);">99.4%</span></div>
+        <div class="breakdown-row"><span class="label">Vendor access compliance</span><span class="value" style="color:var(--green);">100%</span></div>
+        <div class="breakdown-row"><span class="label">Open audit findings</span><span class="value" style="color:var(--green);">0</span></div>
+      `
+    },
+    t5: {
+      title: 'DRILL-DOWN: Kaizen Activity — Trigger Catalogue + A3 Pipeline',
+      sub: '13 triggers; A3 close-out median 4.2 BD (target ≤ 5 BD)',
+      meta: ['Refresh: Daily', 'Last refresh: 2026-09-02 09:00 UTC', 'Source: Engagement anomaly log + A3 repository'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Open Kaizens (3)</h3>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:12px;border-radius:6px;border:1px solid var(--line);margin-bottom:6px;">
+          <div style="font-weight:600;">#1 SPC UCL breach — formation latency spike</div>
+          <div style="color:var(--ink-3);font-size:11px;margin-top:2px;">Open 2.1 BD | A3 in progress | Track B</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:12px;border-radius:6px;border:1px solid var(--line);margin-bottom:6px;">
+          <div style="font-weight:600;">#2 New asset ingress — new BMS firmware</div>
+          <div style="color:var(--ink-3);font-size:11px;margin-top:2px;">Open 1.8 BD | Cryptographic signing verification | Track A + C</div>
+        </div>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:12px;border-radius:6px;border:1px solid var(--line);">
+          <div style="font-weight:600;">#3 Industry peer event — competitor breach disclosed</div>
+          <div style="color:var(--ink-3);font-size:11px;margin-top:2px;">Open 0.9 BD | Threat intel correlation | Track C + IT Security</div>
+        </div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">A3 close-out time distribution (YTD)</h3>
+        <div class="bar-row"><span>Median</span><div class="bar-track"><div class="bar-fill green" style="width:84%"></div></div><span style="text-align:right;">4.2 BD</span><span class="target-line">/ ≤ 5 BD</span></div>
+        <div class="bar-row"><span>P90</span><div class="bar-track"><div class="bar-fill amber" style="width:90%"></div></div><span style="text-align:right;">4.5 BD</span><span class="target-line">/ ≤ 5 BD</span></div>
+        <div class="bar-row"><span>Worst case</span><div class="bar-track"><div class="bar-fill red" style="width:96%"></div></div><span style="text-align:right;">4.8 BD</span><span class="target-line">/ ≤ 5 BD</span></div>
+      `
+    },
+    t6: {
+      title: 'DRILL-DOWN: Maturity Score — Sub-Indicator Detail',
+      sub: 'Level 4 (Quantitatively Managed); 13/16 sub-indicators at full (target: sustained at 4 → 5)',
+      meta: ['Refresh: Quarterly', 'Last refresh: 2026-Q2 (next: 2026-Q3)', 'External validation: 2026-Q3 (scheduled)'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Sub-indicator detail</h3>
+        <p style="font-size:12px;color:var(--ink-2);margin-bottom:8px;">Each sub-indicator scored 0 (absent), 1 (partial), 2 (full). Level 4 requires ≥ 12/16.</p>
+        <table class="site-table" style="margin-top:10px;">
+          <thead><tr><th>Sub-indicator</th><th>Score</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Standard Work operating</td><td><span class="pill green">2/2</span></td><td>100% GB compliance, 90 days</td></tr>
+            <tr><td>FMEA refreshed quarterly</td><td><span class="pill green">2/2</span></td><td>Last: 2026-08-15 (Q3)</td></tr>
+            <tr><td>SPC charts active</td><td><span class="pill green">2/2</span></td><td>4 charts deployed, all receiving data</td></tr>
+            <tr><td>Cpk measured per sub-process</td><td><span class="pill green">2/2</span></td><td>All 5 sub-processes at Cpk ≥ 2.0 (Six Sigma)</td></tr>
+            <tr><td>AI agents operational</td><td><span class="pill green">2/2</span></td><td>All 4 agents, CISO kill-switch</td></tr>
+            <tr><td>Poka-Yoke enforced</td><td><span class="pill amber">1/2</span></td><td>Top 5 RPN enforced; remaining 5 in Q3-Q4</td></tr>
+            <tr><td>Kaizen cycle operating</td><td><span class="pill green">2/2</span></td><td>13 triggers, A3 median 4.2 BD</td></tr>
+            <tr><td>Cross-site audit exchange</td><td><span class="pill red">0/2</span></td><td>Pending Site 2 G5 (M6)</td></tr>
+          </tbody>
+        </table>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Path to Level 5 (Optimising)</h3>
+        <p style="font-size:12px;color:var(--ink-2);">Level 5 requires cross-site audit exchange, predictive capability (AI agents forecasting not just detecting), and external validation. Path: Site 2 G5 (M6) → cross-site audit (M7-M9) → external validation (M9-Q3) → Level 5 by M12-M15.</p>
+      `
+    },
+    t7: {
+      title: 'DRILL-DOWN: Cross-Site Status — Replication Plan',
+      sub: 'Site 1 G5 complete; Site 2 onboarding (Wk 8 of 12); Sites 3-5 pending',
+      meta: ['Refresh: Monthly', 'Last refresh: 2026-09-01', 'Source: Site MBBs + cross-site knowledge log'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Replication timeline (months post-G5)</h3>
+        <table class="site-table">
+          <thead><tr><th>Site</th><th>Phase</th><th>Status</th><th>Maturity target</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Site 1</strong></td><td>G5 complete</td><td><span class="pill green">ACTIVE</span></td><td>Level 4 → 5 (sustained)</td></tr>
+            <tr><td><strong>Site 2</strong></td><td>Wk 8 of 12</td><td><span class="pill amber">ONBOARD</span></td><td>Level 4 by W12</td></tr>
+            <tr><td><strong>Site 3</strong></td><td>M7-9 (start)</td><td><span class="pill gray">PENDING</span></td><td>Level 4 by M9</td></tr>
+            <tr><td><strong>Site 4</strong></td><td>M10-12</td><td><span class="pill gray">PENDING</span></td><td>Level 4 by M12</td></tr>
+            <tr><td><strong>Site 5</strong></td><td>M13-15</td><td><span class="pill gray">PENDING</span></td><td>Level 4 by M15</td></tr>
+            <tr><td><strong>Enterprise</strong></td><td>M18+</td><td><span class="pill gray">PLANNED</span></td><td>All sites at Level 4+</td></tr>
+          </tbody>
+        </table>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Knowledge transfer mechanisms</h3>
+        <div class="breakdown-row"><span class="label">Weekly cross-site sync</span><span class="value">Site MBBs + engagement MBB</span></div>
+        <div class="breakdown-row"><span class="label">Cross-site audit exchange</span><span class="value">Quarterly rotation</span></div>
+        <div class="breakdown-row"><span class="label">Replication playbook</span><span class="value">Site-agnostic, CISO-approved</span></div>
+        <div class="breakdown-row"><span class="label">Local adaptation</span><span class="value">MBB-approved; CISO sign-off for deviations</span></div>
+      `
+    },
+    t8: {
+      title: 'DRILL-DOWN: Regulatory & Compliance — Status Detail',
+      sub: 'All 4 frameworks compliant; 0 open audit findings; 1 pending regulatory change',
+      meta: ['Refresh: Monthly', 'Last refresh: 2026-09-01', 'Source: MBB + Legal/Compliance + CISO regulatory log'],
+      body: `
+        <h3 style="font-size:14px;margin:16px 0 8px;">Regulatory status detail</h3>
+        <table class="site-table">
+          <thead><tr><th>Framework</th><th>Status</th><th>Last audit</th><th>Next milestone</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NIS2 (EU)</strong></td><td><span class="pill green">COMPLIANT</span></td><td>2026-Q2</td><td>Q4-2026 NIS2 amendment (monitoring)</td></tr>
+            <tr><td><strong>IEC 62443</strong></td><td><span class="pill green">COMPLIANT</span></td><td>2026-Q2</td><td>2027-Q2 surveillance</td></tr>
+            <tr><td><strong>OEM Cyber Attestation</strong></td><td><span class="pill green">COMPLIANT</span></td><td>2026-Q2</td><td>2 renewals in next 90 days</td></tr>
+            <tr><td><strong>GDPR</strong></td><td><span class="pill green">COMPLIANT</span></td><td>2026-Q1</td><td>2027-Q1</td></tr>
+            <tr><td><strong>EU PLD 2024/2853</strong></td><td><span class="pill green">CONTROLS OP.</span></td><td>Continuous</td><td>Structural controls verified</td></tr>
+          </tbody>
+        </table>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Recent compliance activity</h3>
+        <div style="font-size:12px;color:var(--ink-2);background:var(--bg);padding:10px;border-radius:6px;border:1px solid var(--line);">
+          <div style="margin:4px 0;">• 2026-08-12: OEM attestation renewed (BMW)</div>
+          <div style="margin:4px 0;">• 2026-07-28: NIS2 internal audit completed</div>
+          <div style="margin:4px 0;">• 2026-07-15: IEC 62443 surveillance audit passed</div>
+        </div>
+        <h3 style="font-size:14px;margin:16px 0 8px;">Forward look (Q4 2026)</h3>
+        <p style="font-size:12px;color:var(--ink-2);">NIS2 amendment expected Q4-2026; MBB + Legal monitoring. 2 OEM renewals (VW, Stellantis) due in 90 days. MBB will coordinate attestations with engagement's Control plan updates.</p>
+      `
+    }
+  };
+
+  function openDrill(id) {
+    const data = drillData[id];
+    document.getElementById('drillTitle').textContent = data.title;
+    document.getElementById('drillSub').textContent = data.sub;
+    document.getElementById('drillMeta').innerHTML = data.meta.map(m => `<span>${m}</span>`).join('');
+    document.getElementById('drillBody').innerHTML = data.body;
+    document.getElementById('drillModal').classList.add('active');
+  }
+
+  function closeDrill() {
+    document.getElementById('drillModal').classList.remove('active');
+  }
+
+  document.getElementById('drillModal').addEventListener('click', function(e) {
+    if (e.target === this) closeDrill();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDrill();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+.ENV/
+
+# Environment variables and secrets
+.env
+.env.local
+.env.production
+.secrets/
+*.pem
+*.key
+*.crt
+hsm-credentials
+data-lake-credentials
+/etc/cyber-resilience/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Build artefacts
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.dylib
+
+# Deployment staging (these are intermediate folders for public deployment, not source)
+deploy/
+deploy-dashboard/
+deploy-staging/
+
+# Local-only folders
+client-package-temp/
+implementation-package-temp/
+__pycache__/
+*.tmp
+
+# Keep these (do not ignore)
+!docs/01-charter/charter.docx
+!docs/01-charter/charter.pdf
+!docs/01-charter/charter.html
+!docs/01-charter/dashboard.html
+!docs/01-charter/client-package.zip
+
+# Audit logs (keep them - they're part of the engagement record)
+!*.jsonl
